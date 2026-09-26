@@ -49,9 +49,7 @@
                     animation: {
                         'marquee': 'marquee 35s linear infinite',
                         'fade-in': 'fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                        'slide-up': 'slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                        'pulse-glow': 'pulseGlow 2.5s infinite ease-in-out',
-                        'kenburns': 'kenburns 12s ease-out infinite alternate'
+                        'slide-up': 'slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards'
                     },
                     keyframes: {
                         marquee: {
@@ -65,14 +63,6 @@
                         slideUp: {
                             '0%': { opacity: '0', transform: 'translateY(30px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' }
-                        },
-                        pulseGlow: {
-                            '0%, 100%': { boxShadow: '0 0 0 0 rgba(212, 175, 55, 0.6)' },
-                            '50%': { boxShadow: '0 0 0 14px rgba(212, 175, 55, 0)' }
-                        },
-                        kenburns: {
-                            '0%': { transform: 'scale(1)' },
-                            '100%': { transform: 'scale(1.08)' }
                         }
                     }
                 }
@@ -255,78 +245,96 @@
         </div>
     </div>
 
-   <!-- Hero Section Carousel -->
-<section class="relative h-[70vh] sm:h-[80vh] lg:h-[85vh] min-h-[520px] max-h-[900px] bg-noir overflow-hidden group" id="hero-carousel">
-    
-    <!-- Slide 1: Kehkashan Formals -->
-    <div id="hero-slide-0" class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-100 z-10">
-        <img src="banner 1.jpeg" alt="Kehkashan Formals Campaign" class="w-full h-full object-cover object-center lg:object-top animate-kenburns brightness-90">
-        <div class="absolute inset-0 bg-gradient-to-r from-noir/90 via-noir/50 lg:from-noir/80 lg:via-noir/30 to-transparent"></div>
-        <div class="absolute inset-0 flex items-center justify-start z-10">
-            <div class="max-w-7xl w-full mx-auto px-6 sm:px-12 lg:px-16">
-                <div class="max-w-2xl text-cream space-y-3 sm:space-y-4 text-left">
-                    <span class="text-[10px] sm:text-xs uppercase tracking-[0.4em] font-semibold text-gold block">Couture Campaign '26</span>
-                    <h1 class="font-display italic text-4xl sm:text-7xl lg:text-8xl font-normal tracking-wide leading-none">KEHKASHAN FORMALS</h1>
-                    <p class="text-[10px] sm:text-sm font-light tracking-[0.2em] text-cream-soft uppercase leading-relaxed">Pure 80g Raw Silk • Handcrafted Zardozi</p>
-                    <div class="pt-4 flex items-center justify-start gap-4">
-                        <a href="#products-grid" onclick="filterCategory('formals')" class="px-8 sm:px-10 py-3.5 sm:py-4 bg-gold text-noir text-[10px] sm:text-xs tracking-[0.25em] font-bold uppercase hover:bg-cream transition-all shadow-xl text-center">Shop Campaign</a>
+    <!-- Hero Section Carousel (No Image Cropping: Uses object-contain on Desktop) -->
+    <section class="relative bg-noir overflow-hidden group min-h-[480px] sm:min-h-[550px] lg:min-h-[600px] flex items-center justify-center" id="hero-carousel">
+        
+        <!-- Slide 1: Kehkashan Formals -->
+        <div id="hero-slide-0" class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-100 z-10 flex items-center justify-center">
+            <img src="banner 1.jpeg" alt="Kehkashan Formals Campaign" class="w-full h-full object-cover lg:object-contain object-center">
+            <div class="absolute inset-0 bg-gradient-to-r from-noir/80 via-noir/40 to-transparent"></div>
+            <div class="absolute inset-0 flex items-center justify-start z-10">
+                <div class="max-w-7xl w-full mx-auto px-6 sm:px-12 lg:px-16">
+                    <div class="max-w-2xl text-cream space-y-3 sm:space-y-4 text-left">
+                        <span class="text-[10px] sm:text-xs uppercase tracking-[0.4em] font-semibold text-gold block">Couture Campaign '26</span>
+                        <h1 class="font-display italic text-4xl sm:text-7xl lg:text-8xl font-normal tracking-wide leading-none text-cream drop-shadow-md">KEHKASHAN FORMALS</h1>
+                        <p class="text-[10px] sm:text-sm font-light tracking-[0.2em] text-cream-soft uppercase leading-relaxed">Pure 80g Raw Silk • Handcrafted Zardozi</p>
+                        <div class="pt-4 flex items-center justify-start gap-4">
+                            <a href="#products-grid" onclick="filterCategory('formals')" class="px-8 sm:px-10 py-3.5 sm:py-4 bg-gold text-noir text-[10px] sm:text-xs tracking-[0.25em] font-bold uppercase hover:bg-cream transition-all shadow-xl text-center">Shop Campaign</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Slide 2: Royal Bridal Couture -->
-    <div id="hero-slide-1" class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0 z-0">
-        <img src="bridal_1.jpeg" alt="Royal Bridal Couture" class="w-full h-full object-cover object-center lg:object-top animate-kenburns brightness-90">
-        <div class="absolute inset-0 bg-gradient-to-r from-noir/90 via-noir/50 lg:from-noir/80 lg:via-noir/30 to-transparent"></div>
-        <div class="absolute inset-0 flex items-center justify-start z-10">
-            <div class="max-w-7xl w-full mx-auto px-6 sm:px-12 lg:px-16">
-                <div class="max-w-2xl text-cream space-y-3 sm:space-y-4 text-left">
-                    <span class="text-[10px] sm:text-xs uppercase tracking-[0.4em] font-semibold text-gold block">Heirloom Creations</span>
-                    <h1 class="font-display italic text-4xl sm:text-7xl lg:text-8xl font-normal tracking-wide leading-none">ROYAL BRIDALS</h1>
-                    <p class="text-[10px] sm:text-sm font-light tracking-[0.2em] text-cream-soft uppercase leading-relaxed">Bespoke Couture • Milan &amp; Lahore Ateliers</p>
-                    <div class="pt-4 flex items-center justify-start">
-                        <a href="#products-grid" onclick="filterCategory('bridals')" class="px-8 sm:px-10 py-3.5 sm:py-4 bg-gold text-noir text-[10px] sm:text-xs tracking-[0.25em] font-bold uppercase hover:bg-cream transition-all shadow-xl text-center">Book Consultation</a>
+        <!-- Slide 2: Royal Bridal Couture -->
+        <div id="hero-slide-1" class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0 z-0 flex items-center justify-center">
+            <img src="bridal_1.jpeg" alt="Royal Bridal Couture" class="w-full h-full object-cover lg:object-contain object-center">
+            <div class="absolute inset-0 bg-gradient-to-r from-noir/80 via-noir/40 to-transparent"></div>
+            <div class="absolute inset-0 flex items-center justify-start z-10">
+                <div class="max-w-7xl w-full mx-auto px-6 sm:px-12 lg:px-16">
+                    <div class="max-w-2xl text-cream space-y-3 sm:space-y-4 text-left">
+                        <span class="text-[10px] sm:text-xs uppercase tracking-[0.4em] font-semibold text-gold block">Heirloom Creations</span>
+                        <h1 class="font-display italic text-4xl sm:text-7xl lg:text-8xl font-normal tracking-wide leading-none text-cream drop-shadow-md">ROYAL BRIDALS</h1>
+                        <p class="text-[10px] sm:text-sm font-light tracking-[0.2em] text-cream-soft uppercase leading-relaxed">Bespoke Couture • Milan &amp; Lahore Ateliers</p>
+                        <div class="pt-4 flex items-center justify-start">
+                            <a href="#products-grid" onclick="filterCategory('bridals')" class="px-8 sm:px-10 py-3.5 sm:py-4 bg-gold text-noir text-[10px] sm:text-xs tracking-[0.25em] font-bold uppercase hover:bg-cream transition-all shadow-xl text-center">Book Consultation</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Slide 3: Luxe Lawn Unstitched -->
-    <div id="hero-slide-2" class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0 z-0">
-        <img src="lawn.jpeg" alt="Luxe Lawn Unstitched Collection" class="w-full h-full object-cover object-center lg:object-top animate-kenburns brightness-90">
-        <div class="absolute inset-0 bg-gradient-to-r from-noir/90 via-noir/50 lg:from-noir/80 lg:via-noir/30 to-transparent"></div>
-        <div class="absolute inset-0 flex items-center justify-start z-10">
-            <div class="max-w-7xl w-full mx-auto px-6 sm:px-12 lg:px-16">
-                <div class="max-w-2xl text-cream space-y-3 sm:space-y-4 text-left">
-                    <span class="text-[10px] sm:text-xs uppercase tracking-[0.4em] font-semibold text-gold block">Unstitched 3-Piece</span>
-                    <h1 class="font-display italic text-4xl sm:text-7xl lg:text-8xl font-normal tracking-wide leading-none">LUXE LAWN '26</h1>
-                    <p class="text-[10px] sm:text-sm font-light tracking-[0.2em] text-cream-soft uppercase leading-relaxed">Schiffli Cutwork • Pure Chiffon Dupattas</p>
-                    <div class="pt-4 flex items-center justify-start">
-                        <a href="#products-grid" onclick="filterCategory('unstitched')" class="px-8 sm:px-10 py-3.5 sm:py-4 bg-gold text-noir text-[10px] sm:text-xs tracking-[0.25em] font-bold uppercase hover:bg-cream transition-all shadow-xl text-center">Discover Lawn</a>
+        <!-- Slide 3: Luxe Lawn Unstitched -->
+        <div id="hero-slide-2" class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0 z-0 flex items-center justify-center">
+            <img src="lawn.jpeg" alt="Luxe Lawn Unstitched Collection" class="w-full h-full object-cover lg:object-contain object-center">
+            <div class="absolute inset-0 bg-gradient-to-r from-noir/80 via-noir/40 to-transparent"></div>
+            <div class="absolute inset-0 flex items-center justify-start z-10">
+                <div class="max-w-7xl w-full mx-auto px-6 sm:px-12 lg:px-16">
+                    <div class="max-w-2xl text-cream space-y-3 sm:space-y-4 text-left">
+                        <span class="text-[10px] sm:text-xs uppercase tracking-[0.4em] font-semibold text-gold block">Unstitched 3-Piece</span>
+                        <h1 class="font-display italic text-4xl sm:text-7xl lg:text-8xl font-normal tracking-wide leading-none text-cream drop-shadow-md">LUXE LAWN '26</h1>
+                        <p class="text-[10px] sm:text-sm font-light tracking-[0.2em] text-cream-soft uppercase leading-relaxed">Schiffli Cutwork • Pure Chiffon Dupattas</p>
+                        <div class="pt-4 flex items-center justify-start">
+                            <a href="#products-grid" onclick="filterCategory('unstitched')" class="px-8 sm:px-10 py-3.5 sm:py-4 bg-gold text-noir text-[10px] sm:text-xs tracking-[0.25em] font-bold uppercase hover:bg-cream transition-all shadow-xl text-center">Discover Lawn</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Carousel Nav Buttons -->
-    <button onclick="prevHeroSlide()" class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 p-2 sm:p-3 rounded-full bg-noir/40 hover:bg-gold text-cream hover:text-noir transition-colors backdrop-blur-sm border border-white/10" aria-label="Previous Slide">
-        <i data-lucide="chevron-left" class="w-5 h-5 sm:w-6 sm:h-6"></i>
-    </button>
-    <button onclick="nextHeroSlide()" class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 p-2 sm:p-3 rounded-full bg-noir/40 hover:bg-gold text-cream hover:text-noir transition-colors backdrop-blur-sm border border-white/10" aria-label="Next Slide">
-        <i data-lucide="chevron-right" class="w-5 h-5 sm:w-6 sm:h-6"></i>
-    </button>
+        <!-- Carousel Nav Buttons -->
+        <button onclick="prevHeroSlide()" class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 p-2 sm:p-3 rounded-full bg-noir/50 hover:bg-gold text-cream hover:text-noir transition-colors backdrop-blur-sm border border-white/10" aria-label="Previous Slide">
+            <i data-lucide="chevron-left" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+        </button>
+        <button onclick="nextHeroSlide()" class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 p-2 sm:p-3 rounded-full bg-noir/50 hover:bg-gold text-cream hover:text-noir transition-colors backdrop-blur-sm border border-white/10" aria-label="Next Slide">
+            <i data-lucide="chevron-right" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+        </button>
 
-    <!-- Slide Indicators / Dots -->
-    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center space-x-3">
-        <button onclick="goToHeroSlide(0)" class="hero-dot w-8 h-1 rounded-full bg-gold transition-all duration-300"></button>
-        <button onclick="goToHeroSlide(1)" class="hero-dot w-2 h-1 rounded-full bg-cream/40 transition-all duration-300"></button>
-        <button onclick="goToHeroSlide(2)" class="hero-dot w-2 h-1 rounded-full bg-cream/40 transition-all duration-300"></button>
+        <!-- Slide Indicators / Dots -->
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center space-x-3">
+            <button onclick="goToHeroSlide(0)" class="hero-dot w-8 h-1 rounded-full bg-gold transition-all duration-300"></button>
+            <button onclick="goToHeroSlide(1)" class="hero-dot w-2 h-1 rounded-full bg-cream/40 transition-all duration-300"></button>
+            <button onclick="goToHeroSlide(2)" class="hero-dot w-2 h-1 rounded-full bg-cream/40 transition-all duration-300"></button>
+        </div>
+    </section>
+
+    <!-- Marquee Banner -->
+    <div class="bg-noir text-cream py-3.5 overflow-hidden border-y border-gold/30 select-none">
+        <div class="flex whitespace-nowrap animate-marquee">
+            <span class="text-[11px] tracking-[0.3em] uppercase mx-12 text-gold-light font-medium flex items-center space-x-3">
+                <span class="text-gold">✨</span>
+                <span>NEW ARRIVALS: KEHKASHAN FORMALS '26</span>
+                <span class="text-gold">•</span>
+                <span>EXPRESS WORLDWIDE COUTURE SHIPPING</span>
+            </span>
+            <span class="text-[11px] tracking-[0.3em] uppercase mx-12 text-gold-light font-medium flex items-center space-x-3">
+                <span class="text-gold">✨</span>
+                <span>NEW ARRIVALS: KEHKASHAN FORMALS '26</span>
+                <span class="text-gold">•</span>
+                <span>EXPRESS WORLDWIDE COUTURE SHIPPING</span>
+            </span>
+        </div>
     </div>
-</section>
 
     <!-- Category Grid Section (Responsive 2-1 layout on mobile) -->
     <section class="py-12 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -504,7 +512,7 @@
                     <div id="sm-price" class="text-lg sm:text-xl font-bold text-noir mb-3"></div>
                     <p id="sm-description" class="text-xs text-noir/80 leading-relaxed mb-4 font-light"></p>
 
-                    <!-- Stitching & Tailoring Options restored -->
+                    <!-- Stitching & Tailoring Options -->
                     <div class="space-y-4 border-t border-b border-noir/10 py-4 mb-4">
                         <div>
                             <span class="text-[10px] uppercase tracking-widest font-bold text-noir block mb-2">Tailoring Selection:</span>
@@ -601,6 +609,67 @@
         let isStitchedSelected = false;
 
         const STITCHING_FEE_PKR = 12000;
+
+        /* Hero Carousel JavaScript Logic */
+        let currentHeroSlide = 0;
+        const totalHeroSlides = 3;
+        let heroSlideInterval = null;
+
+        function updateHeroSlides() {
+            for (let i = 0; i < totalHeroSlides; i++) {
+                const slide = document.getElementById(`hero-slide-${i}`);
+                const dot = document.querySelectorAll('.hero-dot')[i];
+                
+                if (slide) {
+                    if (i === currentHeroSlide) {
+                        slide.classList.remove('opacity-0', 'z-0');
+                        slide.classList.add('opacity-100', 'z-10');
+                    } else {
+                        slide.classList.remove('opacity-100', 'z-10');
+                        slide.classList.add('opacity-0', 'z-0');
+                    }
+                }
+
+                if (dot) {
+                    if (i === currentHeroSlide) {
+                        dot.classList.remove('w-2', 'bg-cream/40');
+                        dot.classList.add('w-8', 'bg-gold');
+                    } else {
+                        dot.classList.remove('w-8', 'bg-gold');
+                        dot.classList.add('w-2', 'bg-cream/40');
+                    }
+                }
+            }
+        }
+
+        function nextHeroSlide() {
+            currentHeroSlide = (currentHeroSlide + 1) % totalHeroSlides;
+            updateHeroSlides();
+            resetHeroTimer();
+        }
+
+        function prevHeroSlide() {
+            currentHeroSlide = (currentHeroSlide - 1 + totalHeroSlides) % totalHeroSlides;
+            updateHeroSlides();
+            resetHeroTimer();
+        }
+
+        function goToHeroSlide(index) {
+            currentHeroSlide = index;
+            updateHeroSlides();
+            resetHeroTimer();
+        }
+
+        function startHeroTimer() {
+            heroSlideInterval = setInterval(() => {
+                nextHeroSlide();
+            }, 6000);
+        }
+
+        function resetHeroTimer() {
+            clearInterval(heroSlideInterval);
+            startHeroTimer();
+        }
 
         const productsDatabase = [
             { id: 'p1', name: 'Masaya Hand-Embroidered Raw Silk', category: 'formals', categoryLabel: 'Kehkashan Formals', fabric: 'Raw Silk', pricePKR: 195000, image: 'silk_hd.jpeg', badge: 'Formals 26', description: 'Pure 80g Raw Silk shirt embellished with intricate Zardozi, tilla, and resham threadwork.' },
@@ -919,74 +988,9 @@
         window.onload = function() {
             applyFilters();
             renderCart();
+            startHeroTimer();
             if (window.lucide) lucide.createIcons();
         };
-        let currentHeroSlide = 0;
-const totalHeroSlides = 3;
-let heroSlideInterval = null;
-
-function updateHeroSlides() {
-    for (let i = 0; i < totalHeroSlides; i++) {
-        const slide = document.getElementById(`hero-slide-${i}`);
-        const dot = document.querySelectorAll('.hero-dot')[i];
-        
-        if (slide) {
-            if (i === currentHeroSlide) {
-                slide.classList.remove('opacity-0', 'z-0');
-                slide.classList.add('opacity-100', 'z-10');
-            } else {
-                slide.classList.remove('opacity-100', 'z-10');
-                slide.classList.add('opacity-0', 'z-0');
-            }
-        }
-
-        if (dot) {
-            if (i === currentHeroSlide) {
-                dot.classList.remove('w-2', 'bg-cream/40');
-                dot.classList.add('w-8', 'bg-gold');
-            } else {
-                dot.classList.remove('w-8', 'bg-gold');
-                dot.classList.add('w-2', 'bg-cream/40');
-            }
-        }
-    }
-}
-
-function nextHeroSlide() {
-    currentHeroSlide = (currentHeroSlide + 1) % totalHeroSlides;
-    updateHeroSlides();
-    resetHeroTimer();
-}
-
-function prevHeroSlide() {
-    currentHeroSlide = (currentHeroSlide - 1 + totalHeroSlides) % totalHeroSlides;
-    updateHeroSlides();
-    resetHeroTimer();
-}
-
-function goToHeroSlide(index) {
-    currentHeroSlide = index;
-    updateHeroSlides();
-    resetHeroTimer();
-}
-
-function startHeroTimer() {
-    heroSlideInterval = setInterval(() => {
-        nextHeroSlide();
-    }, 6000); // Transitions every 6 seconds
-}
-
-function resetHeroTimer() {
-    clearInterval(heroSlideInterval);
-    startHeroTimer();
-}
-
-// Initialize on page load inside window.onload
-const originalOnload = window.onload;
-window.onload = function() {
-    if (originalOnload) originalOnload();
-    startHeroTimer();
-};
     </script>
 </body>
 </html>
