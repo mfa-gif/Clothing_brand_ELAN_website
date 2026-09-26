@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ÉLAN Atelier | Haute Couture, Luxe Lawn &amp; Bridal Tailoring</title>
     
-    <!-- Google Fonts: Cormorant Garamond, Cinzel, Plus Jakarta Sans -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -85,28 +85,6 @@
         ::-webkit-scrollbar-track { background: #FAF8F5; }
         ::-webkit-scrollbar-thumb { background: #B88E4C; border-radius: 2px; }
         ::-webkit-scrollbar-thumb:hover { background: #080807; }
-        
-        .gold-border-glow {
-            box-shadow: 0 0 20px rgba(184, 142, 76, 0.2);
-        }
-
-        .gold-gradient-text {
-            background: linear-gradient(135deg, #D4AF37 0%, #FAF8F5 45%, #B88E4C 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .luxury-glass {
-            background: rgba(250, 248, 245, 0.88);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-        }
-
-        .dark-glass {
-            background: rgba(8, 8, 7, 0.85);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-        }
 
         .hover-underline {
             position: relative;
@@ -134,10 +112,23 @@
             border-color: #B88E4C;
             box-shadow: 0 4px 12px rgba(184, 142, 76, 0.15);
         }
+
+        /* Responsive 2-1 alternating layout for mobile screen sizes (<640px) */
+        @media (max-width: 639px) {
+            .mobile-grid-2-1 {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 0.75rem;
+            }
+            .mobile-grid-2-1 > :nth-child(3n) {
+                grid-column: span 2 / span 2;
+            }
+        }
     </style>
 </head>
 <body class="bg-cream text-noir font-sans antialiased selection:bg-gold selection:text-noir min-h-screen flex flex-col justify-between overflow-x-hidden">
 
+    <!-- Top Announcement Bar -->
     <div class="bg-noir text-cream text-[10px] sm:text-[11px] tracking-[0.22em] uppercase py-2.5 px-4 sm:px-8 border-b border-white/10 flex justify-between items-center relative z-50">
         <div class="hidden lg:flex items-center space-x-6 text-taupe">
             <span class="flex items-center space-x-2">
@@ -148,13 +139,11 @@
             <span class="text-gold-light">Bespoke Couture &amp; Custom Tailoring</span>
         </div>
         
-        <!-- Center Banner -->
         <div class="mx-auto lg:mx-0 font-medium tracking-[0.25em] text-center text-gold-light flex items-center space-x-2">
             <span class="inline-block w-2 h-2 rounded-full bg-gold animate-ping"></span>
             <span id="announcement-text" class="font-serif italic text-xs tracking-widest text-cream">KEHKASHAN HAUTE FORMALS '26 • PRE-BOOKING NOW OPEN</span>
         </div>
 
-        <!-- Currency Selector Dropdown -->
         <div class="hidden sm:flex items-center space-x-2 text-taupe text-[10px]">
             <span class="mr-1 tracking-widest uppercase">Currency:</span>
             <div class="flex bg-noir-soft p-0.5 rounded border border-white/10">
@@ -167,60 +156,34 @@
         </div>
     </div>
 
-    <header id="main-header" class="sticky top-0 z-40 luxury-glass transition-all duration-300 border-b border-noir/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-22 flex items-center justify-between">
-            
-            <!-- Mobile Menu Toggle -->
+    <!-- Header Navigation -->
+    <header id="main-header" class="sticky top-0 z-40 bg-cream/90 backdrop-blur-md transition-all duration-300 border-b border-noir/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <button onclick="toggleMobileNav()" class="lg:hidden p-2 text-noir hover:text-gold transition-colors focus:outline-none" aria-label="Open Navigation">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
 
-            <!-- Desktop Navigation Links -->
             <nav class="hidden lg:flex items-center space-x-8 text-[11px] font-semibold tracking-[0.2em] uppercase">
                 <a href="#products-grid" onclick="filterCategory('unstitched')" class="nav-link hover-underline text-noir hover:text-gold transition-colors">Unstitched Lawn</a>
                 <a href="#products-grid" onclick="filterCategory('formals')" class="nav-link hover-underline text-noir hover:text-gold transition-colors">Festive Formals</a>
                 <a href="#products-grid" onclick="filterCategory('luxury-pret')" class="nav-link hover-underline text-noir hover:text-gold transition-colors">Silk Pret</a>
                 <a href="#products-grid" onclick="filterCategory('bridals')" class="nav-link hover-underline text-noir hover:text-gold transition-colors">Royal Bridals</a>
                 <a href="#products-grid" onclick="filterCategory('menswear')" class="nav-link hover-underline text-noir hover:text-gold transition-colors">Menswear</a>
-                <a href="#atelier-consultation" class="text-gold font-serif text-xs font-bold tracking-[0.25em] hover:text-noir transition-colors flex items-center space-x-1">
-                    <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-                    <span>Virtual Atelier</span>
-                </a>
             </nav>
 
-            <!-- ÉLAN Brand Logo -->
             <a href="#" class="text-center group py-2">
                 <span class="font-serif text-2xl md:text-3xl lg:text-4xl tracking-[0.3em] font-normal uppercase text-noir block group-hover:text-gold transition-colors">ÉLAN</span>
                 <span class="text-[8px] uppercase tracking-[0.45em] text-taupe block -mt-1 font-sans font-medium">Haute Couture • Milan &amp; Lahore</span>
             </a>
 
-            <!-- Right Actions Toolbar -->
-            <div class="flex items-center space-x-4 sm:space-x-6 text-xs font-medium uppercase tracking-widest">
-                <!-- Size Guide Modal Trigger -->
-                <button onclick="toggleSizeGuideModal()" class="hidden md:flex items-center space-x-1 text-[10px] tracking-widest text-taupe hover:text-noir transition-colors border-b border-transparent hover:border-noir pb-0.5">
-                    <i data-lucide="ruler" class="w-3.5 h-3.5 text-gold"></i>
-                    <span>Size Guide</span>
-                </button>
-
-                <!-- Search Button -->
+            <div class="flex items-center space-x-3 sm:space-x-6 text-xs font-medium uppercase tracking-widest">
                 <button onclick="toggleSearchModal()" class="p-2 hover:text-gold transition-colors text-noir" title="Search Collections">
                     <i data-lucide="search" class="w-5 h-5"></i>
                 </button>
-
-                <!-- WhatsApp Quick Consult -->
-                <a href="https://wa.me/923000000000?text=Hello%20ÉLAN%20Atelier,%20I%20would%20like%20to%20inquire%20about%20your%20Bespoke%20Collections." 
-                   target="_blank" rel="noopener noreferrer" 
-                   class="hidden sm:flex items-center p-2 text-emerald-700 hover:text-emerald-900 transition-colors" title="Direct WhatsApp Stylist Inquiry">
-                    <i data-lucide="message-circle" class="w-5 h-5 fill-emerald-100"></i>
-                </a>
-
-                <!-- Wishlist -->
                 <button onclick="toggleWishlistModal()" class="p-2 hover:text-gold transition-colors relative text-noir" title="Wishlist">
                     <i data-lucide="heart" class="w-5 h-5"></i>
                     <span id="wishlist-badge" class="hidden absolute top-0 right-0 bg-gold text-noir text-[9px] font-bold rounded-full w-4 h-4 flex items-center justify-center shadow">0</span>
                 </button>
-
-                <!-- Shopping Bag -->
                 <button onclick="toggleCart(true)" class="p-2 hover:text-gold transition-colors relative flex items-center text-noir group" title="Shopping Bag">
                     <i data-lucide="shopping-bag" class="w-5 h-5"></i>
                     <span id="cart-badge" class="hidden absolute top-0 right-0 bg-noir text-cream text-[9px] font-bold rounded-full w-4 h-4 flex items-center justify-center shadow border border-gold">0</span>
@@ -229,7 +192,8 @@
         </div>
     </header>
 
-    <div id="mobile-menu" class="fixed inset-0 z-50 dark-glass text-cream transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between p-8 lg:hidden">
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="fixed inset-0 z-50 bg-noir/95 backdrop-blur-md text-cream transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between p-8 lg:hidden">
         <div class="flex justify-between items-center border-b border-white/10 pb-6">
             <div>
                 <span class="font-serif text-3xl tracking-[0.25em] text-gold">ÉLAN</span>
@@ -261,26 +225,14 @@
                 <span>05. Menswear &amp; Sherwanis</span>
                 <i data-lucide="arrow-right" class="w-5 h-5 text-gold"></i>
             </a>
-            <a href="#atelier-consultation" onclick="closeMobileNav();" class="text-gold font-sans text-xs uppercase tracking-[0.25em] font-bold pt-4 flex items-center space-x-2">
-                <i data-lucide="sparkles" class="w-4 h-4"></i>
-                <span>Book Virtual Appointment</span>
-            </a>
         </nav>
 
-        <div class="pt-6 border-t border-white/10 space-y-4">
-            <div class="flex justify-between items-center text-xs tracking-widest text-taupe uppercase">
-                <span>Select Currency:</span>
-                <div class="flex space-x-2 font-semibold">
-                    <button onclick="setCurrency('PKR')" class="hover:text-gold">PKR</button>
-                    <button onclick="setCurrency('USD')" class="hover:text-gold">USD</button>
-                    <button onclick="setCurrency('GBP')" class="hover:text-gold">GBP</button>
-                    <button onclick="setCurrency('EUR')" class="hover:text-gold">EUR</button>
-                </div>
-            </div>
-            <p class="text-[10px] text-taupe text-center tracking-widest">© 2026 ÉLAN LUXURY HOUSE. MILANO &amp; LAHORE.</p>
+        <div class="pt-6 border-t border-white/10 text-center">
+            <p class="text-[10px] text-taupe tracking-widest">© 2026 ÉLAN LUXURY HOUSE. MILANO &amp; LAHORE.</p>
         </div>
     </div>
 
+    <!-- Search Modal -->
     <div id="search-modal" class="fixed inset-0 z-50 bg-noir/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300 flex flex-col justify-start pt-16 sm:pt-24 px-4">
         <div class="max-w-3xl w-full mx-auto bg-cream p-6 md:p-10 shadow-2xl relative border border-gold/40 rounded-sm">
             <button onclick="toggleSearchModal()" class="absolute top-6 right-6 p-2 text-noir hover:text-gold transition-colors">
@@ -296,14 +248,6 @@
                        class="w-full bg-transparent border-b-2 border-noir/30 py-3 text-xl font-display placeholder:font-sans placeholder:text-xs placeholder:tracking-widest placeholder:text-taupe focus:outline-none focus:border-gold">
                 <i data-lucide="search" class="absolute right-2 top-3 w-6 h-6 text-taupe"></i>
             </div>
-            
-            <div class="flex flex-wrap gap-2 mb-6 text-xs uppercase tracking-widest text-taupe items-center">
-                <span class="font-bold text-noir text-[10px] tracking-widest">Popular Searches:</span>
-                <button onclick="setSearchTerm('Masaya')" class="px-2.5 py-1 bg-cream-soft hover:bg-gold hover:text-noir transition-colors rounded text-[10px]">Masaya Silk</button>
-                <button onclick="setSearchTerm('Schiffli')" class="px-2.5 py-1 bg-cream-soft hover:bg-gold hover:text-noir transition-colors rounded text-[10px]">Schiffli Lawn</button>
-                <button onclick="setSearchTerm('Bridal')" class="px-2.5 py-1 bg-cream-soft hover:bg-gold hover:text-noir transition-colors rounded text-[10px]">Royal Bridal</button>
-                <button onclick="setSearchTerm('Organza')" class="px-2.5 py-1 bg-cream-soft hover:bg-gold hover:text-noir transition-colors rounded text-[10px]">Pure Organza</button>
-            </div>
 
             <div id="search-results" class="max-h-80 overflow-y-auto space-y-3 divide-y divide-noir/5 pr-2">
                 <p class="text-xs text-taupe uppercase tracking-widest text-center py-8">Start typing to search ensembles...</p>
@@ -311,604 +255,207 @@
         </div>
     </div>
 
-    <section class="relative h-[88vh] min-h-[600px] flex items-center bg-noir overflow-hidden group">
-        
-    <!-- Hero Slide 1 -->
-    <div id="hero-slide-0" class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-100 z-10">
-        <img src="banner 1.jpeg" alt="Kehkashan Formals Campaign" class="w-full h-full object-cover object-top animate-kenburns brightness-90">
-        <!-- Horizontal vignette gradient for left text contrast -->
-        <div class="absolute inset-0 bg-gradient-to-r from-noir/90 via-noir/50 to-transparent"></div>
-        
-        <div class="absolute inset-0 flex items-center justify-start z-10">
-            <div class="max-w-7xl w-full mx-auto px-6 sm:px-12 lg:px-16">
-                <div class="max-w-2xl text-cream animate-slide-up space-y-4 text-left">
-                    <span class="text-xs uppercase tracking-[0.4em] font-semibold text-gold block">Couture Campaign 2026</span>
-                    <h1 class="font-display italic text-5xl sm:text-7xl lg:text-8xl font-normal tracking-wide leading-none text-left">KEHKASHAN FORMALS</h1>
-                    <p class="text-xs sm:text-sm font-light tracking-[0.25em] text-cream-soft uppercase leading-relaxed text-left">Pure 80g Raw Silk • Handcrafted Zardozi • Heirloom Craftsmanship</p>
-                    <div class="pt-6 flex flex-col sm:flex-row items-center justify-start gap-5">
-                        <a href="#products-grid" onclick="filterCategory('formals')" class="w-full sm:w-auto px-10 py-4 bg-gold text-noir text-xs tracking-[0.25em] font-bold uppercase hover:bg-cream hover:text-noir transition-all shadow-xl text-center">Shop The Campaign</a>
-                        <a href="#atelier-consultation" class="w-full sm:w-auto px-10 py-4 border border-cream/50 text-cream text-xs tracking-[0.25em] font-bold uppercase hover:bg-cream hover:text-noir transition-all backdrop-blur-sm text-center">Book Couture Appointment</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Hero Slide 2 -->
-    <div id="hero-slide-1" class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0 z-0">
-        <img src="banner_lawn.jpeg" alt="Unstitched Luxe Lawn '26" class="w-full h-full object-cover object-top animate-kenburns brightness-90">
-        <!-- Horizontal vignette gradient for left text contrast -->
-        <div class="absolute inset-0 bg-gradient-to-r from-noir/90 via-noir/50 to-transparent"></div>
-        
-        <div class="absolute inset-0 flex items-center justify-start z-10">
-            <div class="max-w-7xl w-full mx-auto px-6 sm:px-12 lg:px-16">
-                <div class="max-w-2xl text-cream animate-slide-up space-y-4 text-left">
-                    <span class="text-xs uppercase tracking-[0.4em] font-semibold text-gold block">Unstitched Summer Anthology</span>
-                    <h1 class="font-display italic text-5xl sm:text-7xl lg:text-8xl font-normal tracking-wide leading-none text-left">LUXE LAWN '26</h1>
-                    <p class="text-xs sm:text-sm font-light tracking-[0.25em] text-cream-soft uppercase leading-relaxed text-left">Schiffli Laser Cut • Pure Silk Dupattas • Bespoke Tailoring Options</p>
-                    <div class="pt-6 flex flex-col sm:flex-row items-center justify-start gap-5">
-                        <a href="#products-grid" onclick="filterCategory('unstitched')" class="w-full sm:w-auto px-10 py-4 bg-gold text-noir text-xs tracking-[0.25em] font-bold uppercase hover:bg-cream transition-all shadow-xl text-center">Explore Unstitched 3-Pc</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Hero Slide 3 -->
-    <div id="hero-slide-2" class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0 z-0">
-        <img src="bannner_bridal.jpeg" alt="Royal Bridals Haute Couture" class="w-full h-full object-cover object-top animate-kenburns brightness-90">
-        <!-- Horizontal vignette gradient for left text contrast -->
-        <div class="absolute inset-0 bg-gradient-to-r from-noir/90 via-noir/50 to-transparent"></div>
-        
-        <div class="absolute inset-0 flex items-center justify-start z-10">
-            <div class="max-w-7xl w-full mx-auto px-6 sm:px-12 lg:px-16">
-                <div class="max-w-2xl text-cream animate-slide-up space-y-4 text-left">
-                    <span class="text-xs uppercase tracking-[0.4em] font-semibold text-gold block">Haute Couture Atelier</span>
-                    <h1 class="font-display italic text-5xl sm:text-7xl lg:text-8xl font-normal tracking-wide leading-none text-left">ROYAL BRIDAL COUTURE</h1>
-                    <p class="text-xs sm:text-sm font-light tracking-[0.25em] text-cream-soft uppercase leading-relaxed text-left">Gota, Dabka &amp; Resham Threadwork • Custom Fitting Consultation</p>
-                    <div class="pt-6 flex flex-col sm:flex-row items-center justify-start gap-5">
-                        <a href="https://wa.me/923000000000?text=I%20am%20interested%20in%20Bridal%20Couture%20Inquiry" target="_blank" rel="noopener noreferrer" 
-                           class="w-full sm:w-auto px-10 py-4 bg-emerald-700 text-cream text-xs tracking-[0.25em] font-bold uppercase hover:bg-emerald-800 transition-all flex items-center justify-center space-x-2 shadow-xl">
-                            <i data-lucide="message-circle" class="w-4 h-4"></i>
-                            <span>Inquire via WhatsApp</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Navigation Arrows -->
-    <button onclick="prevSlide()" class="absolute left-6 top-1/2 -translate-y-1/2 z-20 p-3 text-cream/70 hover:text-gold hover:scale-110 transition-all rounded-full bg-noir/40 backdrop-blur-md border border-white/10" aria-label="Previous Slide">
-        <i data-lucide="chevron-left" class="w-6 h-6"></i>
-    </button>
-    <button onclick="nextSlide()" class="absolute right-6 top-1/2 -translate-y-1/2 z-20 p-3 text-cream/70 hover:text-gold hover:scale-110 transition-all rounded-full bg-noir/40 backdrop-blur-md border border-white/10" aria-label="Next Slide">
-        <i data-lucide="chevron-right" class="w-6 h-6"></i>
-    </button>
-
-    <!-- Slide Indicators & Counter -->
-    <div class="absolute bottom-8 left-6 sm:left-12 lg:left-16 z-20 flex items-center space-x-6 bg-noir/60 px-6 py-2 rounded-full border border-white/10 backdrop-blur-md">
-        <span id="slide-number" class="text-xs font-serif italic text-gold font-bold">01 / 03</span>
-        <div class="flex space-x-2">
-            <button onclick="goToSlide(0)" class="slide-dot w-6 h-1 bg-gold rounded-full transition-all" aria-label="Slide 1"></button>
-            <button onclick="goToSlide(1)" class="slide-dot w-6 h-1 bg-white/30 rounded-full transition-all" aria-label="Slide 2"></button>
-            <button onclick="goToSlide(2)" class="slide-dot w-6 h-1 bg-white/30 rounded-full transition-all" aria-label="Slide 3"></button>
-        </div>
-    </div>
-</section>
-
-<!-- Marquee Banner -->
-<div class="bg-noir text-cream py-3.5 overflow-hidden border-y border-gold/30 select-none">
-    <div class="flex whitespace-nowrap animate-marquee">
-        <span class="text-[11px] tracking-[0.3em] uppercase mx-12 text-gold-light font-medium flex items-center space-x-3">
-            <span class="text-gold">✨</span>
-            <span>NEW ARRIVALS: KEHKASHAN FORMALS '26</span>
-            <span class="text-gold">•</span>
-            <span>PAY IN 3 EASY INTEREST-FREE INSTALLMENTS</span>
-            <span class="text-gold">•</span>
-            <span>EXPRESS WORLDWIDE COUTURE SHIPPING</span>
-        </span>
-        <span class="text-[11px] tracking-[0.3em] uppercase mx-12 text-gold-light font-medium flex items-center space-x-3">
-            <span class="text-gold">✨</span>
-            <span>NEW ARRIVALS: KEHKASHAN FORMALS '26</span>
-            <span class="text-gold">•</span>
-            <span>PAY IN 3 EASY INTEREST-FREE INSTALLMENTS</span>
-            <span class="text-gold">•</span>
-            <span>EXPRESS WORLDWIDE COUTURE SHIPPING</span>
-        </span>
-    </div>
-</div>
-    <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-noir/10 pb-6">
-        <div>
-            <span class="text-[10px] uppercase tracking-[0.35em] text-gold font-bold block mb-2">Curated Collections</span>
-            <h2 class="font-display italic text-4xl sm:text-5xl text-noir">EXPLORE BY CATEGORY</h2>
-        </div>
-        <p class="text-xs text-taupe uppercase tracking-[0.2em] mt-3 md:mt-0 font-medium">Handcrafted in Milan &amp; Atelier Lahore</p>
-    </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        <!-- Category 1: Unstitched Lawn -->
-        <a href="#products-grid" onclick="filterCategory('unstitched')" class="group block relative h-[480px] overflow-hidden bg-cream-soft border border-noir/10 rounded-sm shadow-md cursor-pointer">
-            <img src="lawn.jpeg" alt="Unstitched Lawn" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-95">
-            <div class="absolute inset-0 bg-gradient-to-t from-noir/90 via-noir/20 to-transparent"></div>
-            <div class="absolute bottom-8 left-6 right-6 text-cream">
-                <span class="text-[9px] uppercase tracking-[0.3em] text-gold font-bold block mb-1">01 • Unstitched 3-Piece</span>
-                <h3 class="font-display italic text-3xl uppercase tracking-wider mb-2">LUXE LAWN</h3>
-                <span class="text-[10px] uppercase tracking-[0.25em] text-cream-soft hover-underline inline-block group-hover:text-gold transition-colors">View Articles &rarr;</span>
-            </div>
-        </a>
-
-        <!-- Category 2: Festive Formals -->
-        <a href="#products-grid" onclick="filterCategory('formals')" class="group block relative h-[480px] overflow-hidden bg-cream-soft border border-noir/10 rounded-sm shadow-md cursor-pointer">
-            <img src="festive.jpeg" alt="Formals & Festive" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-95">
-            <div class="absolute inset-0 bg-gradient-to-t from-noir/90 via-noir/20 to-transparent"></div>
-            <div class="absolute bottom-8 left-6 right-6 text-cream">
-                <span class="text-[9px] uppercase tracking-[0.3em] text-gold font-bold block mb-1">02 • Raw Silk &amp; Organza</span>
-                <h3 class="font-display italic text-3xl uppercase tracking-wider mb-2">FESTIVE FORMALS</h3>
-                <span class="text-[10px] uppercase tracking-[0.25em] text-cream-soft hover-underline inline-block group-hover:text-gold transition-colors">View Articles &rarr;</span>
-            </div>
-        </a>
-
-        <!-- Category 3: Silk Pret -->
-        <a href="#products-grid" onclick="filterCategory('luxury-pret')" class="group block relative h-[480px] overflow-hidden bg-cream-soft border border-noir/10 rounded-sm shadow-md cursor-pointer">
-            <img src="silk.jpeg" alt="Luxury Pret" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-95">
-            <div class="absolute inset-0 bg-gradient-to-t from-noir/90 via-noir/20 to-transparent"></div>
-            <div class="absolute bottom-8 left-6 right-6 text-cream">
-                <span class="text-[9px] uppercase tracking-[0.3em] text-gold font-bold block mb-1">03 • Ready To Wear</span>
-                <h3 class="font-display italic text-3xl uppercase tracking-wider mb-2">SILK PRET</h3>
-                <span class="text-[10px] uppercase tracking-[0.25em] text-cream-soft hover-underline inline-block group-hover:text-gold transition-colors">View Articles &rarr;</span>
-            </div>
-        </a>
-
-        <!-- Category 4: Menswear -->
-        <a href="#products-grid" onclick="filterCategory('menswear')" class="group block relative h-[480px] overflow-hidden bg-cream-soft border border-noir/10 rounded-sm shadow-md cursor-pointer">
-            <img src="men.jpeg" alt="Menswear" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-95">
-            <div class="absolute inset-0 bg-gradient-to-t from-noir/90 via-noir/20 to-transparent"></div>
-            <div class="absolute bottom-8 left-6 right-6 text-cream">
-                <span class="text-[9px] uppercase tracking-[0.3em] text-gold font-bold block mb-1">04 • Prince Suits &amp; Sherwanis</span>
-                <h3 class="font-display italic text-3xl uppercase tracking-wider mb-2">MENSWEAR</h3>
-                <span class="text-[10px] uppercase tracking-[0.25em] text-cream-soft hover-underline inline-block group-hover:text-gold transition-colors">View Articles &rarr;</span>
-            </div>
-        </a>
-    </div>
-</section>
-
-    <section id="products-grid" class="py-24 bg-cream-soft border-t border-noir/10 scroll-mt-20 relative overflow-hidden">
-    <!-- Subtle Background Gold Glow -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold/5 rounded-full blur-3xl pointer-events-none"></div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        <!-- Header Section -->
-        <div class="text-center max-w-3xl mx-auto mb-14">
-            <span class="text-[10px] uppercase tracking-[0.4em] text-gold font-bold block mb-3">
-                The Autumn &amp; Festive Collections
-            </span>
-            <h2 class="font-display italic text-4xl sm:text-6xl text-noir mb-4 uppercase tracking-wider font-light">
-                Atelier Catalog
-            </h2>
-            <div class="flex items-center justify-center space-x-3 mb-10">
-                <div class="w-12 h-[1px] bg-gold/40"></div>
-                <div class="w-2 h-2 rotate-45 border border-gold"></div>
-                <div class="w-12 h-[1px] bg-gold/40"></div>
-            </div>
+    <!-- Hero Section -->
+    <section class="relative h-[65vh] sm:h-[88vh] min-h-[480px] flex items-center bg-noir overflow-hidden group">
+        <div id="hero-slide-0" class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-100 z-10">
+            <img src="banner 1.jpeg" alt="Kehkashan Formals Campaign" class="w-full h-full object-cover object-top sm:object-center animate-kenburns brightness-90">
+            <div class="absolute inset-0 bg-gradient-to-r from-noir/90 via-noir/50 to-transparent"></div>
             
-            <!-- Main Category Navigation Tabs -->
-            <div class="flex flex-wrap justify-center items-center gap-2 sm:gap-3 text-xs uppercase tracking-[0.2em] mb-12 font-medium">
-                <button onclick="filterCategory('all')" class="cat-btn px-5 py-2.5 rounded-full bg-noir text-gold border border-noir transition-all duration-300 shadow-md" data-cat="all">
-                    All Articles
-                </button>
-                <button onclick="filterCategory('unstitched')" class="cat-btn px-5 py-2.5 rounded-full text-taupe hover:text-noir border border-transparent hover:border-gold/30 transition-all duration-300" data-cat="unstitched">
-                    Unstitched Lawn
-                </button>
-                <button onclick="filterCategory('formals')" class="cat-btn px-5 py-2.5 rounded-full text-taupe hover:text-noir border border-transparent hover:border-gold/30 transition-all duration-300" data-cat="formals">
-                    Kehkashan Formals
-                </button>
-                <button onclick="filterCategory('luxury-pret')" class="cat-btn px-5 py-2.5 rounded-full text-taupe hover:text-noir border border-transparent hover:border-gold/30 transition-all duration-300" data-cat="luxury-pret">
-                    Silk Pret
-                </button>
-                <button onclick="filterCategory('bridals')" class="cat-btn px-5 py-2.5 rounded-full text-taupe hover:text-noir border border-transparent hover:border-gold/30 transition-all duration-300" data-cat="bridals">
-                    Bridal Couture
-                </button>
-                <button onclick="filterCategory('menswear')" class="cat-btn px-5 py-2.5 rounded-full text-taupe hover:text-noir border border-transparent hover:border-gold/30 transition-all duration-300" data-cat="menswear">
-                    Menswear
-                </button>
-            </div>
-
-            <!-- Secondary Filter Toolbar -->
-            <div class="bg-white/80 backdrop-blur-md p-4 sm:p-6 rounded-lg border border-gold/20 shadow-xl shadow-noir/5 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-                
-                <!-- Fabric Dropdown -->
-                <div class="relative flex items-center bg-cream-soft border border-noir/10 rounded-md px-4 py-2.5 focus-within:border-gold focus-within:ring-1 focus-within:ring-gold/30 transition-all">
-                    <label for="filter-fabric" class="text-taupe uppercase font-semibold text-[9px] tracking-widest whitespace-nowrap mr-3">Fabric</label>
-                    <div class="h-4 w-[1px] bg-noir/10 mr-3"></div>
-                    <select id="filter-fabric" onchange="applyFilters()" class="w-full bg-transparent text-noir font-sans font-medium text-xs focus:outline-none cursor-pointer appearance-none pr-6">
-                        <option value="all">All Pure Fabrics</option>
-                        <option value="Raw Silk">Pure Raw Silk</option>
-                        <option value="Lawn">Cotton Lawn &amp; Schiffli</option>
-                        <option value="Organza">Pure Organza</option>
-                        <option value="Velvet">Micro Velvet</option>
-                        <option value="Jacquard">Self Jacquard</option>
-                    </select>
-                    <!-- Custom Arrow Icon -->
-                    <div class="absolute right-3 pointer-events-none text-gold">
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </div>
-                </div>
-
-                <!-- Stitching Type Filter -->
-                <div class="relative flex items-center bg-cream-soft border border-noir/10 rounded-md px-4 py-2.5 focus-within:border-gold focus-within:ring-1 focus-within:ring-gold/30 transition-all">
-                    <label for="filter-stitching" class="text-taupe uppercase font-semibold text-[9px] tracking-widest whitespace-nowrap mr-3">Stitching</label>
-                    <div class="h-4 w-[1px] bg-noir/10 mr-3"></div>
-                    <select id="filter-stitching" onchange="applyFilters()" class="w-full bg-transparent text-noir font-sans font-medium text-xs focus:outline-none cursor-pointer appearance-none pr-6">
-                        <option value="all">All Options</option>
-                        <option value="unstitched">Unstitched 3-Piece</option>
-                        <option value="stitched">Ready To Wear</option>
-                        <option value="custom">Custom Fitting Available</option>
-                    </select>
-                    <!-- Custom Arrow Icon -->
-                    <div class="absolute right-3 pointer-events-none text-gold">
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </div>
-                </div>
-
-                <!-- Sort Options -->
-                <div class="relative flex items-center bg-cream-soft border border-noir/10 rounded-md px-4 py-2.5 focus-within:border-gold focus-within:ring-1 focus-within:ring-gold/30 transition-all">
-                    <label for="filter-sort" class="text-taupe uppercase font-semibold text-[9px] tracking-widest whitespace-nowrap mr-3">Sort By</label>
-                    <div class="h-4 w-[1px] bg-noir/10 mr-3"></div>
-                    <select id="filter-sort" onchange="applyFilters()" class="w-full bg-transparent text-noir font-sans font-medium text-xs focus:outline-none cursor-pointer appearance-none pr-6">
-                        <option value="featured">Featured Couture</option>
-                        <option value="price-low">Price: Low to High</option>
-                        <option value="price-high">Price: High to Low</option>
-                    </select>
-                    <!-- Custom Arrow Icon -->
-                    <div class="absolute right-3 pointer-events-none text-gold">
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- Products Grid Container -->
-        <div id="catalog-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Rendered dynamically via JavaScript -->
-        </div>
-    </div>
-</section>
-
-    <section class="bg-noir text-cream py-14 border-y border-gold/30 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
-            <div class="flex items-center space-x-6">
-                <div class="w-16 h-16 rounded-full bg-gold/15 border border-gold flex items-center justify-center flex-shrink-0">
-                    <i data-lucide="credit-card" class="w-8 h-8 text-gold"></i>
-                </div>
-                <div>
-                    <span class="text-xs font-bold text-gold uppercase tracking-[0.25em] block mb-1">Flexi-Pay Installments</span>
-                    <h3 class="font-display italic text-2xl sm:text-3xl">PAY IN 3 EASY INTEREST-FREE INSTALLMENTS</h3>
-                    <p class="text-xs text-taupe tracking-wider mt-1">Available at checkout via BaadMay &amp; International Cards.</p>
-                </div>
-            </div>
-            <button onclick="toggleCart(true)" class="px-10 py-4 bg-gold text-noir font-bold text-xs uppercase tracking-[0.25em] hover:bg-cream hover:text-noir transition-all shadow-xl">
-                Start Shopping
-            </button>
-        </div>
-    </section>
-
-    <section class="py-24 bg-noir text-cream relative overflow-hidden">
-    <!-- Decorative Ambient Glow -->
-    <div class="absolute -top-24 -right-24 w-96 h-96 bg-gold/10 rounded-full blur-3xl pointer-events-none"></div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            
-            <!-- Text Content Banner -->
-            <div class="lg:col-span-5 space-y-6">
-                <span class="text-xs uppercase tracking-[0.4em] text-gold font-bold block">Heritage Atelier Craft</span>
-                <h2 class="font-display italic text-4xl sm:text-6xl leading-tight">
-                    ELEGANCE WOVEN WITH INTENTION &amp; MODERN GRACE
-                </h2>
-                <p class="text-xs text-taupe leading-relaxed font-light tracking-widest uppercase">
-                    From delicate Schiffli laser-cut lawn to hand-embellished Zardozi raw silk formals, every article is constructed with heritage embroidery techniques.
-                </p>
-                <div class="space-y-4 pt-2">
-                    <div class="flex items-center space-x-3 text-xs tracking-wider">
-                        <i data-lucide="check-circle" class="w-4 h-4 text-gold"></i>
-                        <span>Pure Viscose Silk &amp; Certified Egyptian Cotton</span>
-                    </div>
-                    <div class="flex items-center space-x-3 text-xs tracking-wider">
-                        <i data-lucide="check-circle" class="w-4 h-4 text-gold"></i>
-                        <span>Bespoke Tailoring with Custom Trousers &amp; Necklines</span>
-                    </div>
-                    <div class="flex items-center space-x-3 text-xs tracking-wider">
-                        <i data-lucide="check-circle" class="w-4 h-4 text-gold"></i>
-                        <span>Complimentary Matching Dupatta &amp; Borders Included</span>
-                    </div>
-                </div>
-                <div class="pt-4">
-                    <a href="#products-grid" onclick="filterCategory('formals')" class="inline-block px-10 py-4 bg-gold text-noir text-xs tracking-[0.25em] font-bold uppercase hover:bg-cream transition-all duration-300 shadow-lg hover:shadow-gold/20">
-                        Explore Formal Lookbook
-                    </a>
-                </div>
-            </div>
-
-            <!-- Overlapping Premium Image Section -->
-            <div class="lg:col-span-7 relative flex justify-center items-center mt-12 lg:mt-0">
-                <div class="relative w-full max-w-lg aspect-[4/5]">
-                    
-                    <!-- Decorative Luxury Border Backdrop -->
-                    <div class="absolute inset-0 border border-gold/30 translate-x-4 translate-y-4 rounded-sm pointer-events-none transition-transform duration-700 group-hover:translate-x-6 group-hover:translate-y-6"></div>
-                    
-                    <!-- Main Image (Back/Large) -->
-                    <div class="relative w-[82%] h-[85%] overflow-hidden rounded-sm shadow-2xl group transition-all duration-700 hover:scale-[1.01]">
-                        <img 
-                            src="saree.jpeg" 
-                            alt="Atelier Fashion Craft Main Look" 
-                            class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
-                        />
-                        <!-- Subtle Gradient Overlay -->
-                        <div class="absolute inset-0 bg-gradient-to-t from-noir/60 via-transparent to-transparent"></div>
-                    </div>
-
-                    <!-- Secondary Overlapping Image (Front/Floating Accent) -->
-                    <div class="absolute bottom-0 right-0 w-[55%] h-[60%] p-1.5 bg-noir border border-gold/40 shadow-2xl rounded-sm transition-transform duration-500 hover:-translate-y-2 hover:scale-[1.02]">
-                        <div class="relative w-full h-full overflow-hidden group">
-                            <img 
-                                src="pimk_lehanga.jpeg" 
-                                alt="Embroidery Detail Craftsmanship" 
-                                class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
-                            />
-                            <!-- Subtle Highlight Badge -->
-                            <div class="absolute top-2 left-2 bg-noir/80 backdrop-blur-md border border-gold/30 px-2.5 py-1 text-[10px] tracking-widest text-gold uppercase">
-                                Detail Craft
-                            </div>
+            <div class="absolute inset-0 flex items-center justify-start z-10">
+                <div class="max-w-7xl w-full mx-auto px-6 sm:px-12 lg:px-16">
+                    <div class="max-w-2xl text-cream space-y-3 sm:space-y-4 text-left">
+                        <span class="text-[10px] sm:text-xs uppercase tracking-[0.4em] font-semibold text-gold block">Couture Campaign 2026</span>
+                        <h1 class="font-display italic text-4xl sm:text-7xl lg:text-8xl font-normal tracking-wide leading-none">KEHKASHAN FORMALS</h1>
+                        <p class="text-[10px] sm:text-sm font-light tracking-[0.2em] text-cream-soft uppercase leading-relaxed">Pure 80g Raw Silk • Handcrafted Zardozi</p>
+                        <div class="pt-4 flex items-center justify-start">
+                            <a href="#products-grid" onclick="filterCategory('formals')" class="px-8 sm:px-10 py-3.5 sm:py-4 bg-gold text-noir text-[10px] sm:text-xs tracking-[0.25em] font-bold uppercase hover:bg-cream transition-all shadow-xl text-center">Shop Campaign</a>
                         </div>
                     </div>
-
-                    <!-- Floating Heritage Seal Badge -->
-                    <div class="absolute -top-6 -left-6 hidden sm:flex items-center justify-center w-20 h-20 rounded-full bg-noir/90 border border-gold/40 text-gold shadow-2xl backdrop-blur-md animate-pulse">
-                        <span class="text-[9px] tracking-widest font-bold uppercase text-center leading-tight">Hand<br>Crafted</span>
-                    </div>
-
                 </div>
             </div>
+        </div>
+    </section>
 
+    <!-- Marquee Banner -->
+    <div class="bg-noir text-cream py-3.5 overflow-hidden border-y border-gold/30 select-none">
+        <div class="flex whitespace-nowrap animate-marquee">
+            <span class="text-[11px] tracking-[0.3em] uppercase mx-12 text-gold-light font-medium flex items-center space-x-3">
+                <span class="text-gold">✨</span>
+                <span>NEW ARRIVALS: KEHKASHAN FORMALS '26</span>
+                <span class="text-gold">•</span>
+                <span>EXPRESS WORLDWIDE COUTURE SHIPPING</span>
+            </span>
+            <span class="text-[11px] tracking-[0.3em] uppercase mx-12 text-gold-light font-medium flex items-center space-x-3">
+                <span class="text-gold">✨</span>
+                <span>NEW ARRIVALS: KEHKASHAN FORMALS '26</span>
+                <span class="text-gold">•</span>
+                <span>EXPRESS WORLDWIDE COUTURE SHIPPING</span>
+            </span>
         </div>
     </div>
-</section>
-    <section id="atelier-consultation" class="py-24 bg-cream-soft border-t border-noir/10">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <span class="text-xs uppercase tracking-[0.35em] text-gold font-bold block mb-2">Private Bridal &amp; Couture Consultation</span>
-            <h2 class="font-display italic text-4xl sm:text-6xl text-noir mb-4">BOOK A VIRTUAL ATELIER APPOINTMENT</h2>
-            <div class="w-20 h-[2px] bg-gold mx-auto mb-8"></div>
-            <p class="text-xs sm:text-sm text-noir/80 leading-relaxed tracking-widest uppercase max-w-2xl mx-auto mb-10">
-                Consult 1-on-1 with our Senior Couture Stylists via HD Video Call to design your bespoke bridal lehenga, formal gown, or custom groom sherwani.
-            </p>
 
-            <form onsubmit="handleConsultationSubmit(event)" class="bg-cream p-8 sm:p-12 shadow-2xl rounded-sm border border-gold/40 text-left grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                    <label class="text-[10px] uppercase font-bold tracking-widest text-taupe block mb-1.5">Full Name</label>
-                    <input type="text" id="consult-name" required placeholder="Lady / Gentleman Name" class="w-full bg-cream-soft border border-noir/20 p-3.5 text-xs focus:outline-none focus:border-gold">
+    <!-- Category Grid Section (Responsive 2-1 layout on mobile) -->
+    <section class="py-12 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 border-b border-noir/10 pb-6">
+            <div>
+                <span class="text-[10px] uppercase tracking-[0.35em] text-gold font-bold block mb-2">Curated Collections</span>
+                <h2 class="font-display italic text-3xl sm:text-5xl text-noir">EXPLORE BY CATEGORY</h2>
+            </div>
+            <p class="text-[10px] sm:text-xs text-taupe uppercase tracking-[0.2em] mt-2 md:mt-0 font-medium">Handcrafted in Milan &amp; Lahore</p>
+        </div>
+
+        <div class="mobile-grid-2-1 sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
+            <!-- Category 1 -->
+            <a href="#products-grid" onclick="filterCategory('unstitched')" class="group block relative h-[260px] sm:h-[480px] overflow-hidden bg-cream-soft border border-noir/10 rounded-sm shadow-md cursor-pointer">
+                <img src="lawn.jpeg" alt="Unstitched Lawn" class="w-full h-full object-cover object-top sm:object-center transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-95">
+                <div class="absolute inset-0 bg-gradient-to-t from-noir/90 via-noir/20 to-transparent"></div>
+                <div class="absolute bottom-4 sm:bottom-8 left-4 sm:left-6 right-4 sm:right-6 text-cream">
+                    <span class="text-[8px] sm:text-[9px] uppercase tracking-[0.3em] text-gold font-bold block mb-0.5 sm:mb-1">01 • Unstitched</span>
+                    <h3 class="font-display italic text-xl sm:text-3xl uppercase tracking-wider mb-1 sm:mb-2">LUXE LAWN</h3>
+                    <span class="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-cream-soft hover-underline inline-block group-hover:text-gold transition-colors">View &rarr;</span>
                 </div>
-                <div>
-                    <label class="text-[10px] uppercase font-bold tracking-widest text-taupe block mb-1.5">WhatsApp / Phone Number</label>
-                    <input type="tel" id="consult-phone" required placeholder="+92 300 0000000" class="w-full bg-cream-soft border border-noir/20 p-3.5 text-xs focus:outline-none focus:border-gold">
+            </a>
+
+            <!-- Category 2 -->
+            <a href="#products-grid" onclick="filterCategory('formals')" class="group block relative h-[260px] sm:h-[480px] overflow-hidden bg-cream-soft border border-noir/10 rounded-sm shadow-md cursor-pointer">
+                <img src="festive.jpeg" alt="Formals & Festive" class="w-full h-full object-cover object-top sm:object-center transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-95">
+                <div class="absolute inset-0 bg-gradient-to-t from-noir/90 via-noir/20 to-transparent"></div>
+                <div class="absolute bottom-4 sm:bottom-8 left-4 sm:left-6 right-4 sm:right-6 text-cream">
+                    <span class="text-[8px] sm:text-[9px] uppercase tracking-[0.3em] text-gold font-bold block mb-0.5 sm:mb-1">02 • Festive</span>
+                    <h3 class="font-display italic text-xl sm:text-3xl uppercase tracking-wider mb-1 sm:mb-2">FORMALS</h3>
+                    <span class="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-cream-soft hover-underline inline-block group-hover:text-gold transition-colors">View &rarr;</span>
                 </div>
-                <div>
-                    <label class="text-[10px] uppercase font-bold tracking-widest text-taupe block mb-1.5">Occasion / Ensemble</label>
-                    <select id="consult-type" class="w-full bg-cream-soft border border-noir/20 p-3.5 text-xs focus:outline-none focus:border-gold">
-                        <option>Bridal Lehenga / Barat Ensemble</option>
-                        <option>Walima / Reception Formal</option>
-                        <option>Luxury Festive Pret / Eid</option>
-                        <option>Groom Sherwani / Prince Suit</option>
-                    </select>
+            </a>
+
+            <!-- Category 3 (Takes full row on mobile via 2-1 pattern) -->
+            <a href="#products-grid" onclick="filterCategory('luxury-pret')" class="group block relative h-[260px] sm:h-[480px] overflow-hidden bg-cream-soft border border-noir/10 rounded-sm shadow-md cursor-pointer">
+                <img src="silk.jpeg" alt="Luxury Pret" class="w-full h-full object-cover object-top sm:object-center transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-95">
+                <div class="absolute inset-0 bg-gradient-to-t from-noir/90 via-noir/20 to-transparent"></div>
+                <div class="absolute bottom-4 sm:bottom-8 left-4 sm:left-6 right-4 sm:right-6 text-cream">
+                    <span class="text-[8px] sm:text-[9px] uppercase tracking-[0.3em] text-gold font-bold block mb-0.5 sm:mb-1">03 • Ready To Wear</span>
+                    <h3 class="font-display italic text-xl sm:text-3xl uppercase tracking-wider mb-1 sm:mb-2">SILK PRET</h3>
+                    <span class="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-cream-soft hover-underline inline-block group-hover:text-gold transition-colors">View &rarr;</span>
                 </div>
-                <div>
-                    <label class="text-[10px] uppercase font-bold tracking-widest text-taupe block mb-1.5">Preferred Date</label>
-                    <input type="date" id="consult-date" required class="w-full bg-cream-soft border border-noir/20 p-3.5 text-xs focus:outline-none focus:border-gold">
+            </a>
+
+            <!-- Category 4 -->
+            <a href="#products-grid" onclick="filterCategory('menswear')" class="group block relative h-[260px] sm:h-[480px] overflow-hidden bg-cream-soft border border-noir/10 rounded-sm shadow-md cursor-pointer">
+                <img src="men.jpeg" alt="Menswear" class="w-full h-full object-cover object-top sm:object-center transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-95">
+                <div class="absolute inset-0 bg-gradient-to-t from-noir/90 via-noir/20 to-transparent"></div>
+                <div class="absolute bottom-4 sm:bottom-8 left-4 sm:left-6 right-4 sm:right-6 text-cream">
+                    <span class="text-[8px] sm:text-[9px] uppercase tracking-[0.3em] text-gold font-bold block mb-0.5 sm:mb-1">04 • Menswear</span>
+                    <h3 class="font-display italic text-xl sm:text-3xl uppercase tracking-wider mb-1 sm:mb-2">SHERWANIS</h3>
+                    <span class="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-cream-soft hover-underline inline-block group-hover:text-gold transition-colors">View &rarr;</span>
                 </div>
-                <div class="sm:col-span-2 pt-2">
-                    <button type="submit" class="w-full py-4 bg-noir text-gold text-xs font-bold tracking-[0.3em] uppercase hover:bg-gold hover:text-noir transition-all shadow-xl">
-                        Schedule Virtual Consultation
-                    </button>
-                </div>
-            </form>
+            </a>
         </div>
     </section>
 
-    <section class="py-16 bg-cream border-t border-noir/10">
-        <div class="max-w-xl mx-auto px-4 text-center">
-            <span class="text-[10px] uppercase tracking-[0.35em] text-gold font-bold block mb-2">Private Inner Circle</span>
-            <h2 class="font-display italic text-3xl sm:text-4xl text-noir mb-3">JOIN THE ÉLAN ATELIER</h2>
-            <p class="text-xs text-taupe uppercase tracking-widest mb-6">Receive early invitations to seasonal lawn drops and private trunk shows.</p>
+    <!-- Main Catalog Section -->
+    <section id="products-grid" class="py-12 sm:py-24 bg-cream-soft border-t border-noir/10 scroll-mt-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
             
-            <form onsubmit="handleNewsletter(event)" class="flex flex-col sm:flex-row gap-3">
-                <input type="email" required placeholder="Enter email address" class="flex-1 bg-cream-soft border border-noir/20 px-5 py-3.5 text-xs placeholder:text-taupe focus:outline-none focus:border-gold">
-                <button type="submit" class="px-8 py-3.5 bg-noir text-gold text-xs font-bold tracking-[0.25em] uppercase hover:bg-gold hover:text-noir transition-colors shadow">
-                    Subscribe
-                </button>
-            </form>
-        </div>
-    </section>
-
-    <footer class="bg-noir text-cream pt-20 pb-12 border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <div class="space-y-4">
-                    <h3 class="font-serif text-3xl tracking-[0.25em] uppercase text-gold">ÉLAN</h3>
-                    <p class="text-xs text-taupe leading-relaxed tracking-wider">
-                        Pakistan &amp; Milan's premier haute couture luxury house crafting bespoke bridals, unstitched lawn, and festive pret.
-                    </p>
-                    <div class="flex space-x-3 text-gold pt-2">
-                        <a href="#" class="p-2.5 bg-noir-soft hover:bg-gold hover:text-noir rounded-full transition-colors border border-white/10"><i data-lucide="instagram" class="w-4 h-4"></i></a>
-                        <a href="#" class="p-2.5 bg-noir-soft hover:bg-gold hover:text-noir rounded-full transition-colors border border-white/10"><i data-lucide="facebook" class="w-4 h-4"></i></a>
-                        <a href="#" class="p-2.5 bg-noir-soft hover:bg-gold hover:text-noir rounded-full transition-colors border border-white/10"><i data-lucide="youtube" class="w-4 h-4"></i></a>
-                    </div>
-                </div>
-
-                <div>
-                    <h4 class="text-xs uppercase tracking-[0.25em] text-gold font-bold mb-5">Collections</h4>
-                    <ul class="space-y-3 text-xs text-taupe tracking-widest uppercase">
-                        <li><a href="#products-grid" onclick="filterCategory('unstitched')" class="hover:text-cream transition-colors">Unstitched Luxe Lawn</a></li>
-                        <li><a href="#products-grid" onclick="filterCategory('formals')" class="hover:text-cream transition-colors">Kehkashan Formals</a></li>
-                        <li><a href="#products-grid" onclick="filterCategory('luxury-pret')" class="hover:text-cream transition-colors">Silk Pret Kaftans</a></li>
-                        <li><a href="#products-grid" onclick="filterCategory('bridals')" class="hover:text-cream transition-colors">Royal Bridals</a></li>
-                        <li><a href="#products-grid" onclick="filterCategory('menswear')" class="hover:text-cream transition-colors">Groom Sherwanis</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-xs uppercase tracking-[0.25em] text-gold font-bold mb-5">Atelier Support</h4>
-                    <ul class="space-y-3 text-xs text-taupe tracking-widest uppercase">
-                        <li><a href="#" onclick="showToast('Worldwide dispatch: 5-7 business days.')" class="hover:text-cream transition-colors">Order Tracking</a></li>
-                        <li><a href="#" onclick="toggleSizeGuideModal()" class="hover:text-cream transition-colors">Bespoke Size Guide</a></li>
-                        <li><a href="#" onclick="showToast('Installments available via BaadMay.')" class="hover:text-cream transition-colors">Flexi-Pay Options</a></li>
-                        <li><a href="#" onclick="showToast('Complimentary exchanges within 14 days.')" class="hover:text-cream transition-colors">Returns &amp; Exchanges</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-xs uppercase tracking-[0.25em] text-gold font-bold mb-5">Flagship Ateliers</h4>
-                    <p class="text-xs text-taupe leading-relaxed tracking-wider mb-3">
-                        <strong>Lahore Atelier:</strong> Gulberg III, MM Alam Road, Lahore<br>
-                        <strong>Karachi Flagship:</strong> Ocean Mall, Clifton, Karachi<br>
-                        <strong>Milan Studio:</strong> Via Montenapoleone 8, Milano
-                    </p>
-                    <p class="text-xs text-gold font-semibold">WhatsApp Stylist: +92 300 0000000</p>
+            <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-14">
+                <span class="text-[10px] uppercase tracking-[0.4em] text-gold font-bold block mb-2 sm:mb-3">
+                    Autumn &amp; Festive Collections
+                </span>
+                <h2 class="font-display italic text-3xl sm:text-6xl text-noir mb-4 uppercase tracking-wider font-light">
+                    Atelier Catalog
+                </h2>
+                
+                <!-- Category Tabs -->
+                <div class="flex flex-wrap justify-center items-center gap-1.5 sm:gap-3 text-[10px] sm:text-xs uppercase tracking-[0.15em] mb-6 sm:mb-10 font-medium">
+                    <button onclick="filterCategory('all')" class="cat-btn px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-full bg-noir text-gold border border-noir transition-all shadow-md" data-cat="all">All</button>
+                    <button onclick="filterCategory('unstitched')" class="cat-btn px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-full text-taupe hover:text-noir border border-transparent transition-all" data-cat="unstitched">Unstitched</button>
+                    <button onclick="filterCategory('formals')" class="cat-btn px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-full text-taupe hover:text-noir border border-transparent transition-all" data-cat="formals">Formals</button>
+                    <button onclick="filterCategory('luxury-pret')" class="cat-btn px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-full text-taupe hover:text-noir border border-transparent transition-all" data-cat="luxury-pret">Silk Pret</button>
+                    <button onclick="filterCategory('bridals')" class="cat-btn px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-full text-taupe hover:text-noir border border-transparent transition-all" data-cat="bridals">Bridal</button>
+                    <button onclick="filterCategory('menswear')" class="cat-btn px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-full text-taupe hover:text-noir border border-transparent transition-all" data-cat="menswear">Menswear</button>
                 </div>
             </div>
 
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] text-taupe tracking-[0.2em] uppercase space-y-4 md:space-y-0">
-                <div>&copy; 2026 ÉLAN LUXURY HOUSE. ALL RIGHTS RESERVED.</div>
-                <div class="flex space-x-6">
-                    <a href="#" class="hover:text-cream">PRIVACY POLICY</a>
-                    <a href="#" class="hover:text-cream">TERMS OF SERVICE</a>
-                    <a href="#" class="hover:text-cream">STITCHING TERMS</a>
+            <!-- Products Grid with 2-1 Mobile Alternating Row Layout -->
+            <div id="catalog-container" class="mobile-grid-2-1 sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8">
+                <!-- Rendered dynamically via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Heritage Craft Showcase -->
+    <section class="py-12 sm:py-24 bg-noir text-cream relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+                <div class="lg:col-span-5 space-y-4 sm:space-y-6">
+                    <span class="text-[10px] sm:text-xs uppercase tracking-[0.4em] text-gold font-bold block">Heritage Atelier Craft</span>
+                    <h2 class="font-display italic text-3xl sm:text-6xl leading-tight">
+                        ELEGANCE WOVEN WITH INTENTION
+                    </h2>
+                    <p class="text-[11px] sm:text-xs text-taupe leading-relaxed font-light tracking-widest uppercase">
+                        From delicate Schiffli laser-cut lawn to hand-embellished Zardozi raw silk formals, every article is constructed with heritage embroidery techniques.
+                    </p>
                 </div>
+
+                <div class="lg:col-span-7 relative flex justify-center items-center mt-6 lg:mt-0">
+                    <div class="relative w-full max-w-lg aspect-[4/5]">
+                        <div class="relative w-[85%] h-[88%] overflow-hidden rounded-sm shadow-2xl">
+                            <img src="saree.jpeg" alt="Atelier Fashion Craft Main Look" class="w-full h-full object-cover object-top">
+                        </div>
+                        <div class="absolute bottom-0 right-0 w-[55%] h-[55%] p-1 bg-noir border border-gold/40 shadow-2xl rounded-sm">
+                            <img src="pimk_lehanga.jpeg" alt="Embroidery Detail Craftsmanship" class="w-full h-full object-cover object-top">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-noir text-cream pt-14 pb-8 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="space-y-3">
+                    <h3 class="font-serif text-3xl tracking-[0.25em] uppercase text-gold">ÉLAN</h3>
+                    <p class="text-xs text-taupe leading-relaxed tracking-wider">
+                        Pakistan &amp; Milan's premier haute couture luxury house.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-xs uppercase tracking-[0.25em] text-gold font-bold mb-3">Flagship Ateliers</h4>
+                    <p class="text-xs text-taupe leading-relaxed">
+                        Gulberg III, MM Alam Road, Lahore<br>
+                        Ocean Mall, Clifton, Karachi<br>
+                        Via Montenapoleone 8, Milano
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-6 text-center text-[10px] text-taupe tracking-[0.2em] uppercase">
+                &copy; 2026 ÉLAN LUXURY HOUSE. ALL RIGHTS RESERVED.
             </div>
         </div>
     </footer>
 
-    <div id="sizeguide-modal" class="fixed inset-0 z-50 bg-noir/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4">
-        <div class="bg-cream max-w-2xl w-full p-6 sm:p-8 relative shadow-2xl border border-gold rounded-sm">
-            <button onclick="toggleSizeGuideModal()" class="absolute top-4 right-4 p-2 text-noir hover:text-gold">
-                <i data-lucide="x" class="w-6 h-6"></i>
-            </button>
-            
-            <span class="text-[10px] uppercase tracking-[0.3em] text-gold font-bold block mb-1">Tailoring Standard</span>
-            <h3 class="font-display italic text-3xl mb-4 text-noir">WOMEN'S SIZE MEASUREMENTS (INCHES)</h3>
-            
-            <div class="overflow-x-auto mb-6">
-                <table class="w-full text-xs text-left border-collapse">
-                    <thead>
-                        <tr class="bg-noir text-gold uppercase tracking-wider">
-                            <th class="p-3">Size</th>
-                            <th class="p-3">Bust</th>
-                            <th class="p-3">Waist</th>
-                            <th class="p-3">Hips</th>
-                            <th class="p-3">Length</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-noir/10 text-noir">
-                        <tr><td class="p-3 font-bold">XS</td><td class="p-3">34"</td><td class="p-3">28"</td><td class="p-3">37"</td><td class="p-3">42"</td></tr>
-                        <tr><td class="p-3 font-bold">S</td><td class="p-3">36"</td><td class="p-3">30"</td><td class="p-3">39"</td><td class="p-3">43"</td></tr>
-                        <tr><td class="p-3 font-bold">M</td><td class="p-3">39"</td><td class="p-3">33"</td><td class="p-3">42"</td><td class="p-3">44"</td></tr>
-                        <tr><td class="p-3 font-bold">L</td><td class="p-3">42"</td><td class="p-3">36"</td><td class="p-3">45"</td><td class="p-3">45"</td></tr>
-                        <tr><td class="p-3 font-bold">XL</td><td class="p-3">45"</td><td class="p-3">39"</td><td class="p-3">48"</td><td class="p-3">45"</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <p class="text-[11px] text-taupe leading-relaxed">
-                * Note: Custom fitting measurements can also be submitted directly during item selection or requested via our WhatsApp Couture Concierge.
-            </p>
-        </div>
-    </div>
-
-    <div id="stitching-modal" class="fixed inset-0 z-50 bg-noir/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4">
-        <div class="bg-cream max-w-4xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 relative shadow-2xl border border-gold grid grid-cols-1 md:grid-cols-2 gap-8 rounded-sm">
-            <button onclick="closeStitchingModal()" class="absolute top-4 right-4 z-10 p-2 text-noir hover:text-gold">
+    <!-- Stitching Quick View Modal -->
+    <div id="stitching-modal" class="fixed inset-0 z-50 bg-noir/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-3 sm:p-4">
+        <div class="bg-cream max-w-4xl w-full max-h-[92vh] overflow-y-auto p-4 sm:p-8 relative shadow-2xl border border-gold grid grid-cols-1 md:grid-cols-2 gap-6 rounded-sm">
+            <button onclick="closeStitchingModal()" class="absolute top-3 right-3 z-10 p-2 text-noir hover:text-gold">
                 <i data-lucide="x" class="w-6 h-6"></i>
             </button>
 
-            <!-- Image preview -->
             <div class="relative aspect-[3/4] bg-cream-soft overflow-hidden border border-noir/10 shadow">
-                <img id="sm-image" src="" alt="Product" class="w-full h-full object-cover">
+                <img id="sm-image" src="" alt="Product" class="w-full h-full object-cover object-top">
                 <span id="sm-badge" class="absolute top-3 left-3 bg-noir text-gold text-[9px] uppercase tracking-widest px-3 py-1 font-bold border border-gold"></span>
             </div>
 
-            <!-- Options -->
             <div class="flex flex-col justify-between py-1">
                 <div>
                     <span id="sm-category" class="text-[10px] uppercase tracking-widest text-gold font-bold block mb-1"></span>
-                    <h2 id="sm-title" class="font-display italic text-3xl text-noir mb-2"></h2>
-                    <div id="sm-price" class="text-xl font-bold text-noir mb-3"></div>
-                    
-                    <!-- Installment breakdown -->
-                    <div class="bg-cream-soft p-3 rounded border border-noir/10 text-[11px] text-noir mb-5 flex items-center justify-between">
-                        <span>3-Installment Plan:</span>
-                        <strong id="sm-installment" class="text-gold font-bold">Rs. 6,650 / mo</strong>
-                    </div>
-
-                    <p id="sm-description" class="text-xs text-noir/80 leading-relaxed mb-6 font-light"></p>
-
-                    <!-- Stitching Mode Selection -->
-                    <div class="mb-6">
-                        <span class="text-[10px] uppercase font-bold tracking-widest text-taupe block mb-2">Select Stitching Option</span>
-                        <div class="grid grid-cols-3 gap-2 text-xs">
-                            <div>
-                                <input type="radio" id="st-unstitched" name="stitching_type" value="unstitched" checked onchange="updateStitchingUI()" class="hidden custom-radio">
-                                <label for="st-unstitched" class="block p-3 border border-noir/20 text-center cursor-pointer hover:border-noir uppercase tracking-wider text-[10px] font-semibold">
-                                    Unstitched
-                                </label>
-                            </div>
-                            <div>
-                                <input type="radio" id="st-standard" name="stitching_type" value="stitched" onchange="updateStitchingUI()" class="hidden custom-radio">
-                                <label for="st-standard" class="block p-3 border border-noir/20 text-center cursor-pointer hover:border-noir uppercase tracking-wider text-[10px] font-semibold">
-                                    Ready Size
-                                </label>
-                            </div>
-                            <div>
-                                <input type="radio" id="st-custom" name="stitching_type" value="custom" onchange="updateStitchingUI()" class="hidden custom-radio">
-                                <label for="st-custom" class="block p-3 border border-noir/20 text-center cursor-pointer hover:border-noir uppercase tracking-wider text-[10px] font-semibold">
-                                    Custom Fit
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Standard Size Selector -->
-                    <div id="standard-size-box" class="mb-6 hidden">
-                        <div class="flex justify-between items-center mb-2">
-                            <span class="text-[10px] uppercase font-bold tracking-widest text-taupe">Standard Sizes</span>
-                            <button onclick="toggleSizeGuideModal()" class="text-[10px] text-gold underline font-semibold">Size Chart</button>
-                        </div>
-                        <div class="grid grid-cols-5 gap-2 text-xs">
-                            <button onclick="selectStandardSize(this, 'XS')" class="size-btn py-2 border border-noir/20 hover:border-noir text-center font-bold">XS</button>
-                            <button onclick="selectStandardSize(this, 'S')" class="size-btn py-2 border border-noir bg-noir text-cream text-center font-bold">S</button>
-                            <button onclick="selectStandardSize(this, 'M')" class="size-btn py-2 border border-noir/20 hover:border-noir text-center font-bold">M</button>
-                            <button onclick="selectStandardSize(this, 'L')" class="size-btn py-2 border border-noir/20 hover:border-noir text-center font-bold">L</button>
-                            <button onclick="selectStandardSize(this, 'XL')" class="size-btn py-2 border border-noir/20 hover:border-noir text-center font-bold">XL</button>
-                        </div>
-                    </div>
-
-                    <!-- Custom Measurement Fields -->
-                    <div id="custom-measurement-box" class="mb-6 hidden bg-cream-soft p-4 rounded border border-noir/10 space-y-3">
-                        <span class="text-[10px] uppercase font-bold tracking-widest text-gold block">Bespoke Fitting Inches</span>
-                        <div class="grid grid-cols-2 gap-2 text-xs">
-                            <input type="number" id="m-bust" placeholder="Bust (inches)" class="p-2.5 border border-noir/20 bg-cream">
-                            <input type="number" id="m-waist" placeholder="Waist (inches)" class="p-2.5 border border-noir/20 bg-cream">
-                            <input type="number" id="m-hips" placeholder="Hips (inches)" class="p-2.5 border border-noir/20 bg-cream">
-                            <input type="number" id="m-length" placeholder="Shirt Length" class="p-2.5 border border-noir/20 bg-cream">
-                        </div>
-                        <p class="text-[10px] text-taupe">Custom trouser cuts (Straight, Gharara, Sharara) included.</p>
-                    </div>
-
+                    <h2 id="sm-title" class="font-display italic text-2xl sm:text-3xl text-noir mb-2"></h2>
+                    <div id="sm-price" class="text-lg sm:text-xl font-bold text-noir mb-3"></div>
+                    <p id="sm-description" class="text-xs text-noir/80 leading-relaxed mb-4 font-light"></p>
                 </div>
 
                 <div class="space-y-2 pt-2">
-                    <button id="sm-add-btn" class="w-full py-4 bg-noir text-gold font-bold text-xs tracking-[0.25em] uppercase hover:bg-gold hover:text-noir transition-all shadow-xl">
+                    <button id="sm-add-btn" class="w-full py-3.5 bg-noir text-gold font-bold text-xs tracking-[0.25em] uppercase hover:bg-gold hover:text-noir transition-all shadow-xl">
                         Add To Atelier Bag
                     </button>
                 </div>
@@ -916,8 +463,9 @@
         </div>
     </div>
 
+    <!-- Cart Drawer -->
     <div id="cart-backdrop" onclick="toggleCart(false)" class="fixed inset-0 bg-noir/70 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
-    <div id="cart-drawer" class="fixed top-0 right-0 bottom-0 w-full sm:w-[460px] bg-cream z-50 transform translate-x-full transition-transform duration-500 ease-out flex flex-col justify-between p-6 sm:p-8 shadow-2xl">
+    <div id="cart-drawer" class="fixed top-0 right-0 bottom-0 w-full sm:w-[460px] bg-cream z-50 transform translate-x-full transition-transform duration-500 ease-out flex flex-col justify-between p-6 shadow-2xl">
         <div class="flex justify-between items-center border-b border-noir/10 pb-4">
             <div class="flex items-center space-x-3">
                 <i data-lucide="shopping-bag" class="w-5 h-5 text-gold"></i>
@@ -928,270 +476,51 @@
             </button>
         </div>
 
-        <!-- Free Shipping Meter -->
-        <div class="my-4 bg-cream-soft p-3.5 text-center text-xs tracking-wider border border-noir/10 rounded">
-            <span id="shipping-meter-text" class="font-semibold text-noir">Add $300 for Free Express Worldwide Shipping</span>
-            <div class="w-full bg-noir/10 h-1.5 mt-2 rounded-full overflow-hidden">
-                <div id="shipping-meter-bar" class="bg-gold h-full w-0 transition-all duration-500"></div>
-            </div>
-        </div>
+        <div id="cart-items-list" class="flex-1 overflow-y-auto my-4 space-y-4 pr-1"></div>
 
-        <!-- Cart Items List -->
-        <div id="cart-items-list" class="flex-1 overflow-y-auto my-2 space-y-4 pr-1">
-            <!-- Rendered JS -->
-        </div>
-
-        <!-- Cart Footer -->
         <div class="border-t border-noir/10 pt-4 space-y-3">
             <div class="flex justify-between items-center text-xs tracking-widest uppercase">
                 <span class="text-taupe font-semibold">Subtotal</span>
                 <span id="cart-subtotal-val" class="font-bold text-base text-noir">Rs. 0</span>
             </div>
-            <div class="flex justify-between items-center text-[10px] tracking-widest text-gold uppercase">
-                <span>Estimated 3-Pay Installment:</span>
-                <span id="cart-monthly-val" class="font-bold">Rs. 0 / mo</span>
-            </div>
-            <p class="text-[10px] text-taupe uppercase tracking-wider text-center">Worldwide express shipping and custom duties calculated at checkout.</p>
             <button onclick="handleCheckout()" class="w-full py-4 bg-noir text-gold font-bold text-xs tracking-[0.25em] uppercase hover:bg-gold hover:text-noir transition-all shadow-xl">
                 Proceed To Checkout
             </button>
         </div>
     </div>
 
-    <div id="toast-msg" class="fixed bottom-6 right-6 z-50 bg-noir text-gold px-6 py-3.5 rounded shadow-2xl border border-gold/40 text-xs font-semibold uppercase tracking-wider flex items-center space-x-3 transform translate-y-20 opacity-0 transition-all duration-300">
-        <i data-lucide="check-circle" class="w-5 h-5 text-gold"></i>
-        <span id="toast-text">Item added to bag</span>
+    <!-- Toast Notification -->
+    <div id="toast-msg" class="fixed bottom-6 right-6 z-50 bg-noir text-gold px-5 py-3 rounded shadow-2xl border border-gold/40 text-xs font-semibold uppercase tracking-wider flex items-center space-x-3 transform translate-y-20 opacity-0 transition-all duration-300">
+        <i data-lucide="check-circle" class="w-4 h-4 text-gold"></i>
+        <span id="toast-text">Notification</span>
     </div>
 
+    <!-- JavaScript Functions -->
     <script>
-        // Global Application State
         let currentCurrency = 'PKR';
-        
-        // Exchange rates relative to PKR
-        const currencyRates = {
-            PKR: 1,
-            USD: 0.0036,
-            GBP: 0.0028,
-            EUR: 0.0033,
-            AED: 0.0132
-        };
+        const currencyRates = { PKR: 1, USD: 0.0036, GBP: 0.0028, EUR: 0.0033, AED: 0.0132 };
+        const currencySymbols = { PKR: 'Rs. ', USD: '$ ', GBP: '£ ', EUR: '€ ', AED: 'AED ' };
 
-        const currencySymbols = {
-            PKR: 'Rs. ',
-            USD: '$ ',
-            GBP: '£ ',
-            EUR: '€ ',
-            AED: 'AED '
-        };
-
-        let currentActiveSlide = 0;
         let activeCategoryFilter = 'all';
         let wishlist = [];
         let cart = [];
         let selectedProductForStitching = null;
-        let activeSelectedSize = 'S';
 
-        // Catalog Database
         const productsDatabase = [
-            {
-                id: 'p1',
-                name: 'Masaya Hand-Embroidered Raw Silk',
-                category: 'formals',
-                categoryLabel: 'Kehkashan Formals',
-                fabric: 'Raw Silk',
-                stitchingDefault: 'custom',
-                pricePKR: 195000,
-                image: 'silk_hd.jpeg',
-                hoverImage: 'silk_hd.jpeg',
-                isNew: true,
-                badge: 'Formals ' + '26',
-                description: 'Pure 80g Raw Silk shirt embellished with intricate Zardozi, tilla, and resham threadwork. Paired with a pure crushed organza dupatta and tailored silk trousers.'
-            },
-            {
-                id: 'p2',
-                name: 'Laine Schiffli 3-Piece Lawn',
-                category: 'unstitched',
-                categoryLabel: 'Unstitched Lawn',
-                fabric: 'Lawn',
-                stitchingDefault: 'unstitched',
-                pricePKR: 19950,
-                image: 'lawn.jpeg',
-                hoverImage: 'lawn.jpeg',
-                isNew: true,
-                badge: 'Unstitched 3-Pc',
-                description: 'Detailed laser-cut Schiffli lawn shirt with heavy embroidered neckline patch, digitally printed silk dupatta, and dyed lawn trousers.'
-            },
-            {
-                id: 'p3',
-                name: 'Kehkashan Sheer Organza Formal',
-                category: 'formals',
-                categoryLabel: 'Kehkashan Formals',
-                fabric: 'Organza',
-                stitchingDefault: 'custom',
-                pricePKR: 145000,
-                image: 'organza_hd.jpeg',
-                hoverImage: 'organza_hd.jpeg',
-                isNew: false,
-                badge: 'Luxe Formal',
-                description: 'Sheer pure organza long shirt with Mukesh work and crystal hand embellishments over a silk inner camisole.'
-            },
-            {
-                id: 'p4',
-                name: 'Clementine Silk Kaftan Pret',
-                category: 'luxury-pret',
-                categoryLabel: 'Silk Pret',
-                fabric: 'Raw Silk',
-                stitchingDefault: 'stitched',
-                pricePKR: 38500,
-                image: 'silk.jpeg',
-                hoverImage: 'silk.jpeg',
-                isNew: true,
-                badge: 'Ready to Wear',
-                description: 'Flowing viscose silk kaftan with hand-printed botanical motifs and crystal collar accents.'
-            },
-            {
-                id: 'p5',
-                name: 'Rangrez Royal Velvet Sherwani',
-                category: 'menswear',
-                categoryLabel: 'Groom Menswear',
-                fabric: 'Velvet',
-                stitchingDefault: 'custom',
-                pricePKR: 125000,
-                image: 'men_3.jpeg',
-                hoverImage: 'men_3.jpeg',
-                isNew: true,
-                badge: 'Groom Sherwani',
-                description: 'Deep royal maroon velvet sherwani with embroidered collar and antique gold crest motif buttons.'
-            },
-            {
-                id: 'p6',
-                name: 'Jashn-e-Ishq Bridal Lehenga',
-                category: 'bridals',
-                categoryLabel: 'Haute Couture',
-                fabric: 'Raw Silk',
-                stitchingDefault: 'custom',
-                pricePKR: 650000,
-                image: 'bridal_1.jpeg',
-                hoverImage: 'bridal_1.jpeg',
-                isNew: true,
-                badge: 'Bridal Masterpiece',
-                description: 'Heirloom crimson bridal lehenga featuring 3D floral threadwork, dabka, zardozi, and twin hand-woven tissue dupattas.'
-            },
-            {
-                id: 'p7',
-                name: 'Chikankari Unstitched Suit',
-                category: 'unstitched',
-                categoryLabel: 'Unstitched Lawn',
-                fabric: 'Lawn',
-                stitchingDefault: 'unstitched',
-                pricePKR: 17950,
-                image: 'Lawn_2.jpeg',
-                hoverImage: 'Lawn_2.jpeg',
-                isNew: false,
-                badge: 'Chikankari',
-                description: 'Traditional heavy Chikankari embroidered cotton lawn shirt with organza border extensions and silk dupatta.'
-            },
-            {
-                id: 'p8',
-                name: 'Ethereal Prince Coat Set',
-                category: 'menswear',
-                categoryLabel: 'Menswear Couture',
-                fabric: 'Jacquard',
-                stitchingDefault: 'stitched',
-                pricePKR: 48000,
-                image: 'men_2.jpeg',
-                hoverImage: 'men_2.jpeg',
-                isNew: false,
-                badge: 'Prince Suit',
-                description: 'Structured self-jacquard prince coat with slim fit raw silk pants and metallic crest buttons.'
-            },
-             {
-                id: 'p9',
-                name: 'Jashn-e-Ishq Walima Maxi',
-                category: 'bridals',
-                categoryLabel: 'Haute Couture',
-                fabric: 'Raw Silk',
-                stitchingDefault: 'custom',
-                pricePKR: 750000,
-                image: 'walima_1.jpeg',
-                hoverImage: 'walima_1.jpeg',
-                isNew: true,
-                badge: 'Bridal Masterpiece',
-                description: 'Heirloom crimson bridal walima maxi featuring 3D floral threadwork, dabka, zardozi, and twin hand-woven tissue dupattas.'
-            },
-            {
-                id: 'p10',
-                name: ' Silk Kaftan Pret',
-                category: 'luxury-pret',
-                categoryLabel: 'Silk Pret',
-                fabric: 'Raw Silk',
-                stitchingDefault: 'stitched',
-                pricePKR: 8500,
-                image: 'silk_2.jpeg',
-                hoverImage: 'silk_2.jpeg',
-                isNew: true,
-                badge: 'Ready to Wear',
-                description: 'Flowing viscose silk kaftan with hand-printed botanical motifs and crystal collar accents.'
-            },
-            {
-                id: 'p11',
-                name: 'Ethereal Prince Coat Set',
-                category: 'menswear',
-                categoryLabel: 'Menswear Couture',
-                fabric: 'Jacquard',
-                stitchingDefault: 'stitched',
-                pricePKR: 60000,
-                image: 'men.jpeg',
-                hoverImage: 'men.jpeg',
-                isNew: false,
-                badge: 'Prince Suit',
-                description: 'Structured self-jacquard prince coat with slim fit raw silk pants and metallic crest buttons.'
-            },
-            {
-                id: 'p12',
-                name: ' Kaftan Pret',
-                category: 'luxury-pret',
-                categoryLabel: 'Silk Pret',
-                fabric: 'Raw Silk',
-                stitchingDefault: 'stitched',
-                pricePKR: 2000,
-                image: 'festive_2.jpeg',
-                hoverImage: 'festive_2.jpeg',
-                isNew: true,
-                badge: 'Ready to Wear',
-                description: 'Flowing viscose silk kaftan with  botanical motifs and crystal collar accents.'
-            },
-            {
-                id: 'p13',
-                name: ' Kaftan Pret',
-                category: 'luxury-pret',
-                categoryLabel: 'Silk Pret',
-                fabric: 'Raw Silk',
-                stitchingDefault: 'stitched',
-                pricePKR: 15000,
-                image: 'festive _3.jpeg',
-                hoverImage: 'festive _3.jpeg',
-                isNew: true,
-                badge: 'Ready to Wear',
-                description: 'Flowing viscose silk kaftan with  botanical motifs and crystal collar accents.'
-            },
-            {
-                id: 'p14',
-                name: ' Organza Formal',
-                category: 'formals',
-                categoryLabel: 'Kehkashan Formals',
-                fabric: 'Organza',
-                stitchingDefault: 'custom',
-                pricePKR: 55000,
-                image: 'festive.jpeg',
-                hoverImage: 'festive.jpeg',
-                isNew: false,
-                badge: 'Luxe Formal',
-                description: 'Sheer pure organza long shirt with Mukesh work and crystal hand embellishments over a silk inner camisole.'
-            }
+            { id: 'p1', name: 'Masaya Hand-Embroidered Raw Silk', category: 'formals', categoryLabel: 'Kehkashan Formals', fabric: 'Raw Silk', pricePKR: 195000, image: 'silk_hd.jpeg', badge: 'Formals 26', description: 'Pure 80g Raw Silk shirt embellished with intricate Zardozi, tilla, and resham threadwork.' },
+            { id: 'p2', name: 'Laine Schiffli 3-Piece Lawn', category: 'unstitched', categoryLabel: 'Unstitched Lawn', fabric: 'Lawn', pricePKR: 19950, image: 'lawn.jpeg', badge: 'Unstitched 3-Pc', description: 'Detailed laser-cut Schiffli lawn shirt with heavy embroidered neckline patch.' },
+            { id: 'p3', name: 'Kehkashan Sheer Organza Formal', category: 'formals', categoryLabel: 'Kehkashan Formals', fabric: 'Organza', pricePKR: 145000, image: 'organza_hd.jpeg', badge: 'Luxe Formal', description: 'Sheer pure organza long shirt with Mukesh work and crystal hand embellishments.' },
+            { id: 'p4', name: 'Clementine Silk Kaftan Pret', category: 'luxury-pret', categoryLabel: 'Silk Pret', fabric: 'Raw Silk', pricePKR: 38500, image: 'silk.jpeg', badge: 'Ready to Wear', description: 'Flowing viscose silk kaftan with hand-printed botanical motifs.' },
+            { id: 'p5', name: 'Rangrez Royal Velvet Sherwani', category: 'menswear', categoryLabel: 'Groom Menswear', fabric: 'Velvet', pricePKR: 125000, image: 'men_3.jpeg', badge: 'Groom Sherwani', description: 'Deep royal maroon velvet sherwani with embroidered collar.' },
+            { id: 'p6', name: 'Jashn-e-Ishq Bridal Lehenga', category: 'bridals', categoryLabel: 'Haute Couture', fabric: 'Raw Silk', pricePKR: 650000, image: 'bridal_1.jpeg', badge: 'Bridal Masterpiece', description: 'Heirloom crimson bridal lehenga featuring 3D floral threadwork and dabka.' },
+            { id: 'p7', name: 'Chikankari Unstitched Suit', category: 'unstitched', categoryLabel: 'Unstitched Lawn', fabric: 'Lawn', pricePKR: 17950, image: 'Lawn_2.jpeg', badge: 'Chikankari', description: 'Traditional heavy Chikankari embroidered cotton lawn shirt.' },
+            { id: 'p8', name: 'Ethereal Prince Coat Set', category: 'menswear', categoryLabel: 'Menswear Couture', fabric: 'Jacquard', pricePKR: 48000, image: 'men_2.jpeg', badge: 'Prince Suit', description: 'Structured self-jacquard prince coat with slim fit raw silk pants.' },
+            { id: 'p9', name: 'Jashn-e-Ishq Walima Maxi', category: 'bridals', categoryLabel: 'Haute Couture', fabric: 'Raw Silk', pricePKR: 750000, image: 'walima_1.jpeg', badge: 'Bridal Masterpiece', description: 'Heirloom walima maxi featuring 3D floral threadwork and zardozi.' },
+            { id: 'p10', name: 'Silk Kaftan Pret', category: 'luxury-pret', categoryLabel: 'Silk Pret', fabric: 'Raw Silk', pricePKR: 8500, image: 'silk_2.jpeg', badge: 'Ready to Wear', description: 'Flowing viscose silk kaftan with printed motifs.' },
+            { id: 'p11', name: 'Ethereal Prince Coat Set', category: 'menswear', categoryLabel: 'Menswear Couture', fabric: 'Jacquard', pricePKR: 60000, image: 'men.jpeg', badge: 'Prince Suit', description: 'Structured self-jacquard prince coat with metallic crest buttons.' },
+            { id: 'p12', name: 'Kaftan Pret', category: 'luxury-pret', categoryLabel: 'Silk Pret', fabric: 'Raw Silk', pricePKR: 2000, image: 'festive_2.jpeg', badge: 'Ready to Wear', description: 'Flowing viscose silk kaftan with botanical motifs.' }
         ];
 
-        // Format Currency Helper
         function formatPrice(pkrValue) {
             const rate = currencyRates[currentCurrency];
             const symbol = currencySymbols[currentCurrency];
@@ -1199,7 +528,6 @@
             return `${symbol}${converted.toLocaleString()}`;
         }
 
-        // Currency Switcher
         function setCurrency(curr) {
             currentCurrency = curr;
             document.querySelectorAll("[id^='curr-']").forEach(el => {
@@ -1207,22 +535,13 @@
                 el.classList.add('hover:text-cream');
             });
             const activeEl = document.getElementById(`curr-${curr}`);
-            if (activeEl) {
-                activeEl.classList.add('font-bold', 'text-gold', 'bg-noir');
-            }
-
-            // Update campaign hotspot prices
-            const hs1 = document.getElementById('hs1-price');
-            const hs2 = document.getElementById('hs2-price');
-            if (hs1) hs1.innerText = formatPrice(195000);
-            if (hs2) hs2.innerText = formatPrice(19950);
+            if (activeEl) activeEl.classList.add('font-bold', 'text-gold', 'bg-noir');
 
             applyFilters();
             renderCart();
             showToast(`Currency set to ${curr}`);
         }
 
-        // Toast Notification System
         function showToast(message) {
             const toast = document.getElementById('toast-msg');
             const toastText = document.getElementById('toast-text');
@@ -1230,173 +549,72 @@
 
             toastText.innerText = message;
             toast.classList.remove('translate-y-20', 'opacity-0');
-            
             setTimeout(() => {
                 toast.classList.add('translate-y-20', 'opacity-0');
-            }, 3200);
+            }, 3000);
         }
 
-        // Hero Slider Logic
-        function goToSlide(index) {
-            const slides = document.querySelectorAll('.hero-slide');
-            const dots = document.querySelectorAll('.slide-dot');
-            const slideCounter = document.getElementById('slide-number');
-
-            slides.forEach((slide, idx) => {
-                if (idx === index) {
-                    slide.classList.remove('opacity-0', 'z-0');
-                    slide.classList.add('opacity-100', 'z-10');
-                } else {
-                    slide.classList.remove('opacity-100', 'z-10');
-                    slide.classList.add('opacity-0', 'z-0');
-                }
-            });
-
-            dots.forEach((dot, idx) => {
-                if (idx === index) {
-                    dot.classList.add('bg-gold');
-                    dot.classList.remove('bg-white/30');
-                } else {
-                    dot.classList.remove('bg-gold');
-                    dot.classList.add('bg-white/30');
-                }
-            });
-
-            if (slideCounter) {
-                slideCounter.innerText = `0${index + 1} / 03`;
-            }
-
-            currentActiveSlide = index;
-        }
-
-        function nextSlide() {
-            const next = (currentActiveSlide + 1) % 3;
-            goToSlide(next);
-        }
-
-        function prevSlide() {
-            const prev = (currentActiveSlide - 1 + 3) % 3;
-            goToSlide(prev);
-        }
-
-        // Catalog Filter Engine
         function filterCategory(category) {
             activeCategoryFilter = category;
-
             document.querySelectorAll('.cat-btn').forEach(btn => {
-                btn.classList.remove('text-noir', 'border-b-2', 'border-gold');
+                btn.classList.remove('bg-noir', 'text-gold');
                 btn.classList.add('text-taupe');
                 if (btn.dataset.cat === category) {
-                    btn.classList.add('text-noir', 'border-b-2', 'border-gold');
+                    btn.classList.add('bg-noir', 'text-gold');
                     btn.classList.remove('text-taupe');
                 }
             });
-
             applyFilters();
         }
 
         function applyFilters() {
             let filtered = [...productsDatabase];
-
             if (activeCategoryFilter !== 'all') {
                 filtered = filtered.filter(p => p.category === activeCategoryFilter);
             }
-
-            const fabricVal = document.getElementById('filter-fabric') ? document.getElementById('filter-fabric').value : 'all';
-            if (fabricVal !== 'all') {
-                filtered = filtered.filter(p => p.fabric === fabricVal);
-            }
-
-            const stitchVal = document.getElementById('filter-stitching') ? document.getElementById('filter-stitching').value : 'all';
-            if (stitchVal !== 'all') {
-                filtered = filtered.filter(p => p.stitchingDefault === stitchVal || stitchVal === 'custom');
-            }
-
-            const sortVal = document.getElementById('filter-sort') ? document.getElementById('filter-sort').value : 'featured';
-            if (sortVal === 'price-low') {
-                filtered.sort((a, b) => a.pricePKR - b.pricePKR);
-            } else if (sortVal === 'price-high') {
-                filtered.sort((a, b) => b.pricePKR - a.pricePKR);
-            }
-
             renderCatalog(filtered);
         }
 
-        // Render Product Catalog Cards
         function renderCatalog(items) {
             const container = document.getElementById('catalog-container');
             if (!container) return;
 
             if (items.length === 0) {
-                container.innerHTML = `
-                    <div class="col-span-full text-center py-16 text-taupe space-y-4">
-                        <i data-lucide="package-open" class="w-12 h-12 mx-auto text-gold opacity-50"></i>
-                        <p class="text-xs uppercase tracking-widest font-semibold">No couture ensembles match your filter criteria.</p>
-                        <button onclick="resetFilters()" class="px-6 py-2.5 bg-noir text-gold text-xs uppercase tracking-widest font-bold">Reset Filters</button>
-                    </div>
-                `;
-                if (window.lucide) lucide.createIcons();
+                container.innerHTML = '<div class="col-span-full text-center py-12 text-taupe font-semibold text-xs">No ensembles match this category.</div>';
                 return;
             }
 
             container.innerHTML = items.map(product => {
                 const isWishlisted = wishlist.includes(product.id);
-                const monthlyPkr = Math.round(product.pricePKR / 3);
 
                 return `
                     <div class="group relative bg-cream flex flex-col justify-between border border-noir/10 hover:border-gold transition-all duration-300 shadow-sm rounded-sm">
                         <div>
-                            <!-- Card Image View with Dual Image Hover -->
-                            <div class="relative h-[450px] w-full overflow-hidden bg-cream-soft cursor-pointer" onclick="openStitchingModal('${product.id}')">
-                                <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover transition-opacity duration-700 group-hover:opacity-0">
-                                <img src="${product.hoverImage}" alt="${product.name}" class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                            <!-- Aspect ratio and object-top fix clipping on phones -->
+                            <div class="relative aspect-[3/4] w-full overflow-hidden bg-cream-soft cursor-pointer" onclick="openStitchingModal('${product.id}')">
+                                <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
                                 
-                                <span class="absolute top-3 left-3 bg-noir text-gold text-[9px] uppercase tracking-widest px-2.5 py-1 font-bold border border-gold shadow">
+                                <span class="absolute top-2 left-2 bg-noir text-gold text-[8px] uppercase tracking-widest px-2 py-0.5 font-bold border border-gold shadow">
                                     ${product.badge}
                                 </span>
 
-                                <!-- Wishlist Button -->
                                 <button onclick="event.stopPropagation(); toggleWishlist('${product.id}')" 
-                                        class="absolute top-3 right-3 p-2 rounded-full bg-cream/90 text-noir hover:bg-noir hover:text-gold transition-colors shadow">
-                                    <i data-lucide="heart" class="w-4 h-4 ${isWishlisted ? 'fill-current text-gold' : ''}"></i>
+                                        class="absolute top-2 right-2 p-1.5 rounded-full bg-cream/90 text-noir hover:bg-noir hover:text-gold transition-colors shadow">
+                                    <i data-lucide="heart" class="w-3.5 h-3.5 ${isWishlisted ? 'fill-current text-gold' : ''}"></i>
                                 </button>
-
-                                <!-- Quick View Hover Overlay -->
-                                <div class="absolute bottom-4 left-4 right-4 hidden md:block opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <button onclick="event.stopPropagation(); openStitchingModal('${product.id}')" 
-                                            class="w-full py-3 bg-noir/90 text-gold text-[10px] tracking-widest font-bold uppercase hover:bg-gold hover:text-noir transition-colors shadow-xl border border-gold/30">
-                                        Select Stitching &amp; View
-                                    </button>
-                                </div>
                             </div>
 
-                            <!-- Product Information -->
-                            <div class="p-4 space-y-1.5">
-                                <div class="flex justify-between items-start">
-                                    <span class="text-[9px] uppercase tracking-widest text-gold font-bold">${product.categoryLabel}</span>
-                                    <span class="text-[9px] uppercase tracking-wider text-taupe">${product.fabric}</span>
-                                </div>
-                                <h3 class="font-display italic text-xl text-noir cursor-pointer hover:text-gold transition-colors line-clamp-1" onclick="openStitchingModal('${product.id}')">${product.name}</h3>
-                                
-                                <div class="flex items-baseline justify-between pt-1">
-                                    <span class="text-sm font-bold text-noir tracking-wider">${formatPrice(product.pricePKR)}</span>
-                                    <span class="text-[10px] text-taupe font-medium">or 3x ${formatPrice(monthlyPkr)}</span>
-                                </div>
+                            <div class="p-2 sm:p-4 space-y-1">
+                                <span class="text-[8px] sm:text-[9px] uppercase tracking-widest text-gold font-bold block">${product.categoryLabel}</span>
+                                <h3 class="font-display italic text-sm sm:text-xl text-noir cursor-pointer hover:text-gold transition-colors line-clamp-1" onclick="openStitchingModal('${product.id}')">${product.name}</h3>
+                                <p class="text-xs sm:text-sm font-bold text-noir tracking-wider">${formatPrice(product.pricePKR)}</p>
                             </div>
                         </div>
 
-                        <!-- Action Button -->
-                        <div class="p-4 pt-0">
-                            ${product.category === 'bridals' ? `
-                                <a href="https://wa.me/923000000000?text=I%20am%20interested%20in%20inquiring%20about%20${encodeURIComponent(product.name)}" target="_blank" rel="noopener noreferrer" 
-                                   class="block w-full py-2.5 bg-emerald-700 text-cream text-center text-[10px] tracking-widest uppercase font-bold hover:bg-emerald-800 transition-colors">
-                                    Inquire Bridal Concierge
-                                </a>
-                            ` : `
-                                <button onclick="openStitchingModal('${product.id}')" class="w-full py-2.5 border border-noir text-noir text-[10px] tracking-widest uppercase font-bold hover:bg-noir hover:text-gold transition-colors">
-                                    Select Options &amp; Add
-                                </button>
-                            `}
+                        <div class="p-2 sm:p-4 pt-0">
+                            <button onclick="openStitchingModal('${product.id}')" class="w-full py-1.5 sm:py-2.5 border border-noir text-noir text-[8px] sm:text-[10px] tracking-widest uppercase font-bold hover:bg-noir hover:text-gold transition-colors">
+                                View Item
+                            </button>
                         </div>
                     </div>
                 `;
@@ -1405,36 +623,24 @@
             if (window.lucide) lucide.createIcons();
         }
 
-        function resetFilters() {
-            activeCategoryFilter = 'all';
-            if (document.getElementById('filter-fabric')) document.getElementById('filter-fabric').value = 'all';
-            if (document.getElementById('filter-stitching')) document.getElementById('filter-stitching').value = 'all';
-            if (document.getElementById('filter-sort')) document.getElementById('filter-sort').value = 'featured';
-            applyFilters();
-        }
-
-        // Stitching Quick View Modal Logic
         function openStitchingModal(productId) {
             const product = productsDatabase.find(p => p.id === productId);
             if (!product) return;
 
             selectedProductForStitching = product;
-
             document.getElementById('sm-image').src = product.image;
             document.getElementById('sm-badge').innerText = product.badge;
-            document.getElementById('sm-category').innerText = product.categoryLabel + ' • ' + product.fabric;
+            document.getElementById('sm-category').innerText = product.categoryLabel;
             document.getElementById('sm-title').innerText = product.name;
             document.getElementById('sm-price').innerText = formatPrice(product.pricePKR);
-            document.getElementById('sm-installment').innerText = formatPrice(Math.round(product.pricePKR / 3)) + ' / mo';
             document.getElementById('sm-description').innerText = product.description;
 
-            const radioUnstitched = document.getElementById('st-unstitched');
-            if (radioUnstitched) radioUnstitched.checked = true;
-            updateStitchingUI();
-
-            const addBtn = document.getElementById('sm-add-btn');
-            addBtn.onclick = () => {
-                addActiveProductToCart();
+            document.getElementById('sm-add-btn').onclick = () => {
+                cart.push({ product, quantity: 1 });
+                renderCart();
+                closeStitchingModal();
+                toggleCart(true);
+                showToast(`Added ${product.name} to bag!`);
             };
 
             const modal = document.getElementById('stitching-modal');
@@ -1442,74 +648,16 @@
         }
 
         function closeStitchingModal() {
-            const modal = document.getElementById('stitching-modal');
-            modal.classList.add('opacity-0', 'pointer-events-none');
+            document.getElementById('stitching-modal').classList.add('opacity-0', 'pointer-events-none');
         }
 
-        function updateStitchingUI() {
-            const type = document.querySelector('input[name="stitching_type"]:checked').value;
-            const standardBox = document.getElementById('standard-size-box');
-            const customBox = document.getElementById('custom-measurement-box');
-
-            if (type === 'stitched') {
-                standardBox.classList.remove('hidden');
-                customBox.classList.add('hidden');
-            } else if (type === 'custom') {
-                standardBox.classList.add('hidden');
-                customBox.classList.remove('hidden');
-            } else {
-                standardBox.classList.add('hidden');
-                customBox.classList.add('hidden');
-            }
-        }
-
-        function selectStandardSize(btn, size) {
-            activeSelectedSize = size;
-            document.querySelectorAll('.size-btn').forEach(b => {
-                b.classList.remove('bg-noir', 'text-cream');
-                b.classList.add('border-noir/20');
-            });
-            btn.classList.add('bg-noir', 'text-cream');
-        }
-
-        function addActiveProductToCart() {
-            if (!selectedProductForStitching) return;
-
-            const stitchingType = document.querySelector('input[name="stitching_type"]:checked').value;
-            let stitchingLabel = 'Unstitched 3-Piece Fabric';
-
-            if (stitchingType === 'stitched') {
-                stitchingLabel = `Ready Size: ${activeSelectedSize}`;
-            } else if (stitchingType === 'custom') {
-                const bust = document.getElementById('m-bust').value || 'Standard';
-                const waist = document.getElementById('m-waist').value || 'Standard';
-                stitchingLabel = `Bespoke Stitching (Bust: ${bust}", Waist: ${waist}")`;
-            }
-
-            cart.push({
-                product: selectedProductForStitching,
-                stitchingLabel: stitchingLabel,
-                quantity: 1
-            });
-
-            renderCart();
-            closeStitchingModal();
-            toggleCart(true);
-            showToast(`Added ${selectedProductForStitching.name} to bag!`);
-        }
-
-        // Cart Drawer Engine
         function renderCart() {
             const container = document.getElementById('cart-items-list');
             const badge = document.getElementById('cart-badge');
             const subtotalVal = document.getElementById('cart-subtotal-val');
-            const monthlyVal = document.getElementById('cart-monthly-val');
-            const meterBar = document.getElementById('shipping-meter-bar');
 
-            if (!container) return;
-
-            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-            const totalPkr = cart.reduce((sum, item) => sum + (item.product.pricePKR * item.quantity), 0);
+            const totalCount = cart.length;
+            const totalPkr = cart.reduce((sum, item) => sum + item.product.pricePKR, 0);
 
             if (badge) {
                 if (totalCount > 0) {
@@ -1521,28 +669,15 @@
             }
 
             if (subtotalVal) subtotalVal.innerText = formatPrice(totalPkr);
-            if (monthlyVal) monthlyVal.innerText = formatPrice(Math.round(totalPkr / 3)) + ' / mo';
-
-            if (meterBar) {
-                const thresholdPkr = 83000;
-                const percentage = Math.min((totalPkr / thresholdPkr) * 100, 100);
-                meterBar.style.width = `${percentage}%`;
-            }
 
             if (cart.length === 0) {
-                container.innerHTML = `
-                    <div class="text-center py-16 text-taupe space-y-3">
-                        <i data-lucide="shopping-bag" class="w-10 h-10 mx-auto opacity-40 text-gold"></i>
-                        <p class="text-xs uppercase tracking-widest font-semibold">Your atelier bag is currently empty.</p>
-                    </div>
-                `;
+                container.innerHTML = '<div class="text-center py-12 text-taupe text-xs uppercase tracking-widest font-semibold">Your atelier bag is empty.</div>';
             } else {
                 container.innerHTML = cart.map((item, idx) => `
-                    <div class="flex items-center space-x-4 border-b border-noir/10 pb-4">
-                        <img src="${item.product.image}" alt="${item.product.name}" class="w-16 h-20 object-cover bg-cream-soft border border-noir/10">
-                        <div class="flex-1 space-y-1">
-                            <h4 class="font-display italic text-base font-bold text-noir line-clamp-1">${item.product.name}</h4>
-                            <p class="text-[10px] text-gold font-bold uppercase tracking-wider">${item.stitchingLabel}</p>
+                    <div class="flex items-center space-x-4 border-b border-noir/10 pb-3">
+                        <img src="${item.product.image}" class="w-14 h-16 object-cover object-top border border-noir/10">
+                        <div class="flex-1">
+                            <h4 class="font-display italic text-sm font-bold text-noir line-clamp-1">${item.product.name}</h4>
                             <p class="text-xs font-semibold text-noir">${formatPrice(item.product.pricePKR)}</p>
                         </div>
                         <button onclick="removeFromCart(${idx})" class="text-taupe hover:text-noir p-1">
@@ -1558,14 +693,12 @@
         function removeFromCart(index) {
             cart.splice(index, 1);
             renderCart();
-            showToast('Item removed from bag');
+            showToast('Item removed');
         }
 
         function toggleCart(open) {
             const drawer = document.getElementById('cart-drawer');
             const backdrop = document.getElementById('cart-backdrop');
-            if (!drawer || !backdrop) return;
-
             if (open) {
                 drawer.classList.remove('translate-x-full');
                 backdrop.classList.remove('opacity-0', 'pointer-events-none');
@@ -1575,102 +708,48 @@
             }
         }
 
-        function handleCheckout() {
-            if (cart.length === 0) {
-                showToast('Your shopping bag is empty!');
-                return;
-            }
-            showToast('Redirecting to secure haute couture checkout...');
-        }
-
-        // Wishlist System
         function toggleWishlist(productId) {
             const index = wishlist.indexOf(productId);
             if (index > -1) {
                 wishlist.splice(index, 1);
-                showToast('Removed from saved wishlist');
+                showToast('Removed from wishlist');
             } else {
                 wishlist.push(productId);
-                showToast('Saved to your atelier wishlist');
+                showToast('Saved to wishlist');
             }
-
-            const badge = document.getElementById('wishlist-badge');
-            if (badge) {
-                if (wishlist.length > 0) {
-                    badge.innerText = wishlist.length;
-                    badge.classList.remove('hidden');
-                } else {
-                    badge.classList.add('hidden');
-                }
-            }
-
             applyFilters();
         }
 
         function toggleWishlistModal() {
-            if (wishlist.length === 0) {
-                showToast('Wishlist is empty. Tap heart to save articles!');
-            } else {
-                showToast(`You have ${wishlist.length} saved article(s).`);
-            }
+            showToast(`Wishlist contains ${wishlist.length} item(s)`);
         }
 
-        // Size Guide Modal System
-        function toggleSizeGuideModal() {
-            const modal = document.getElementById('sizeguide-modal');
-            if (!modal) return;
-            if (modal.classList.contains('opacity-0')) {
-                modal.classList.remove('opacity-0', 'pointer-events-none');
-            } else {
-                modal.classList.add('opacity-0', 'pointer-events-none');
-            }
-        }
-
-        // Search System
         function toggleSearchModal() {
             const modal = document.getElementById('search-modal');
-            if (!modal) return;
             if (modal.classList.contains('opacity-0')) {
                 modal.classList.remove('opacity-0', 'pointer-events-none');
-                document.getElementById('search-input').focus();
             } else {
                 modal.classList.add('opacity-0', 'pointer-events-none');
-            }
-        }
-
-        function setSearchTerm(term) {
-            const input = document.getElementById('search-input');
-            if (input) {
-                input.value = term;
-                handleSearchInput(term);
             }
         }
 
         function handleSearchInput(query) {
             const container = document.getElementById('search-results');
-            if (!container) return;
-
             const clean = query.toLowerCase().trim();
             if (clean === '') {
-                container.innerHTML = '<p class="text-xs text-taupe uppercase tracking-widest text-center py-8">Start typing to search ensembles...</p>';
+                container.innerHTML = '<p class="text-xs text-taupe uppercase tracking-widest text-center py-8">Start typing...</p>';
                 return;
             }
 
-            const matches = productsDatabase.filter(p => 
-                p.name.toLowerCase().includes(clean) ||
-                p.fabric.toLowerCase().includes(clean) ||
-                p.categoryLabel.toLowerCase().includes(clean) ||
-                p.description.toLowerCase().includes(clean)
-            );
-
+            const matches = productsDatabase.filter(p => p.name.toLowerCase().includes(clean));
             if (matches.length === 0) {
-                container.innerHTML = '<p class="text-xs text-taupe uppercase tracking-widest text-center py-8">No couture matching criteria found</p>';
+                container.innerHTML = '<p class="text-xs text-taupe uppercase tracking-widest text-center py-8">No results found</p>';
             } else {
                 container.innerHTML = matches.map(p => `
-                    <div onclick="openStitchingModal('${p.id}'); toggleSearchModal();" class="flex items-center space-x-4 p-2.5 hover:bg-cream-soft cursor-pointer transition-colors rounded">
-                        <img src="${p.image}" class="w-12 h-14 object-cover border border-noir/10">
+                    <div onclick="openStitchingModal('${p.id}'); toggleSearchModal();" class="flex items-center space-x-3 p-2 hover:bg-cream-soft cursor-pointer">
+                        <img src="${p.image}" class="w-10 h-12 object-cover object-top border">
                         <div>
-                            <h5 class="font-display italic text-base font-bold text-noir">${p.name}</h5>
+                            <h5 class="font-display italic text-sm font-bold text-noir">${p.name}</h5>
                             <p class="text-xs text-gold font-bold">${formatPrice(p.pricePKR)}</p>
                         </div>
                     </div>
@@ -1678,45 +757,19 @@
             }
         }
 
-        // Mobile Nav Drawer Control
         function toggleMobileNav() {
-            const menu = document.getElementById('mobile-menu');
-            if (menu) menu.classList.toggle('translate-x-full');
+            document.getElementById('mobile-menu').classList.toggle('translate-x-full');
         }
 
         function closeMobileNav() {
-            const menu = document.getElementById('mobile-menu');
-            if (menu) menu.classList.add('translate-x-full');
+            document.getElementById('mobile-menu').classList.add('translate-x-full');
         }
 
-        // Form Event Handlers
-        function handleConsultationSubmit(e) {
-            e.preventDefault();
-            const name = document.getElementById('consult-name').value;
-            const phone = document.getElementById('consult-phone').value;
-            const type = document.getElementById('consult-type').value;
-            const date = document.getElementById('consult-date').value;
-
-            const waMessage = `Hello ÉLAN Atelier, I would like to schedule a Virtual Appointment.\nName: ${name}\nPhone: ${phone}\nOccasion: ${type}\nDate: ${date}`;
-            const waUrl = `https://wa.me/923000000000?text=${encodeURIComponent(waMessage)}`;
-            
-            window.open(waUrl, '_blank');
-            showToast('Consultation request sent via WhatsApp Concierge!');
-            e.target.reset();
+        function handleCheckout() {
+            if (cart.length === 0) return showToast('Bag is empty!');
+            showToast('Redirecting to checkout...');
         }
 
-        function handleNewsletter(e) {
-            e.preventDefault();
-            showToast('Welcome to the ÉLAN Atelier Inner Circle!');
-            e.target.reset();
-        }
-
-        // Auto Slide Timer
-        setInterval(() => {
-            nextSlide();
-        }, 7000);
-
-        // Window Load Initializations
         window.onload = function() {
             applyFilters();
             renderCart();
