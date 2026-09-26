@@ -335,58 +335,59 @@
         </span>
     </div>
 </div>
-    <!-- Category Grid Section (Responsive 2-1 layout on mobile) -->
-    <section class="py-12 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 border-b border-noir/10 pb-6">
-            <div>
-                <span class="text-[10px] uppercase tracking-[0.35em] text-gold font-bold block mb-2">Curated Collections</span>
-                <h2 class="font-display italic text-3xl sm:text-5xl text-noir">EXPLORE BY CATEGORY</h2>
+  <!-- Category Grid Section (Strict 2 items per row across Mobile & Desktop) -->
+<section class="py-12 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 border-b border-noir/10 pb-6">
+        <div>
+            <span class="text-[10px] uppercase tracking-[0.35em] text-gold font-bold block mb-2">Curated Collections</span>
+            <h2 class="font-display italic text-3xl sm:text-5xl text-noir">EXPLORE BY CATEGORY</h2>
+        </div>
+        <p class="text-[10px] sm:text-xs text-taupe uppercase tracking-[0.2em] mt-2 md:mt-0 font-medium">Handcrafted in Milan &amp; Lahore</p>
+    </div>
+
+    <!-- Grid configured to grid-cols-2 for both mobile and desktop -->
+    <div class="grid grid-cols-2 gap-3 sm:gap-8">
+        <a href="#products-grid" onclick="filterCategory('unstitched')" class="group block relative h-[260px] sm:h-[480px] overflow-hidden bg-cream-soft border border-noir/10 rounded-sm shadow-md cursor-pointer">
+            <img src="lawn.jpeg" alt="Unstitched Lawn" class="w-full h-full object-cover object-top sm:object-center transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-95">
+            <div class="absolute inset-0 bg-gradient-to-t from-noir/90 via-noir/20 to-transparent"></div>
+            <div class="absolute bottom-4 sm:bottom-8 left-4 sm:left-6 right-4 sm:right-6 text-cream">
+                <span class="text-[8px] sm:text-[9px] uppercase tracking-[0.3em] text-gold font-bold block mb-0.5 sm:mb-1">01 • Unstitched</span>
+                <h3 class="font-display italic text-xl sm:text-3xl uppercase tracking-wider mb-1 sm:mb-2">LUXE LAWN</h3>
+                <span class="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-cream-soft hover-underline inline-block group-hover:text-gold transition-colors">View &rarr;</span>
             </div>
-            <p class="text-[10px] sm:text-xs text-taupe uppercase tracking-[0.2em] mt-2 md:mt-0 font-medium">Handcrafted in Milan &amp; Lahore</p>
-        </div>
+        </a>
 
-        <div class="mobile-grid-2-1 sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
-            <a href="#products-grid" onclick="filterCategory('unstitched')" class="group block relative h-[260px] sm:h-[480px] overflow-hidden bg-cream-soft border border-noir/10 rounded-sm shadow-md cursor-pointer">
-                <img src="lawn.jpeg" alt="Unstitched Lawn" class="w-full h-full object-cover object-top sm:object-center transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-95">
-                <div class="absolute inset-0 bg-gradient-to-t from-noir/90 via-noir/20 to-transparent"></div>
-                <div class="absolute bottom-4 sm:bottom-8 left-4 sm:left-6 right-4 sm:right-6 text-cream">
-                    <span class="text-[8px] sm:text-[9px] uppercase tracking-[0.3em] text-gold font-bold block mb-0.5 sm:mb-1">01 • Unstitched</span>
-                    <h3 class="font-display italic text-xl sm:text-3xl uppercase tracking-wider mb-1 sm:mb-2">LUXE LAWN</h3>
-                    <span class="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-cream-soft hover-underline inline-block group-hover:text-gold transition-colors">View &rarr;</span>
-                </div>
-            </a>
+        <a href="#products-grid" onclick="filterCategory('formals')" class="group block relative h-[260px] sm:h-[480px] overflow-hidden bg-cream-soft border border-noir/10 rounded-sm shadow-md cursor-pointer">
+            <img src="festive.jpeg" alt="Formals & Festive" class="w-full h-full object-cover object-top sm:object-center transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-95">
+            <div class="absolute inset-0 bg-gradient-to-t from-noir/90 via-noir/20 to-transparent"></div>
+            <div class="absolute bottom-4 sm:bottom-8 left-4 sm:left-6 right-4 sm:right-6 text-cream">
+                <span class="text-[8px] sm:text-[9px] uppercase tracking-[0.3em] text-gold font-bold block mb-0.5 sm:mb-1">02 • Festive</span>
+                <h3 class="font-display italic text-xl sm:text-3xl uppercase tracking-wider mb-1 sm:mb-2">FORMALS</h3>
+                <span class="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-cream-soft hover-underline inline-block group-hover:text-gold transition-colors">View &rarr;</span>
+            </div>
+        </a>
 
-            <a href="#products-grid" onclick="filterCategory('formals')" class="group block relative h-[260px] sm:h-[480px] overflow-hidden bg-cream-soft border border-noir/10 rounded-sm shadow-md cursor-pointer">
-                <img src="festive.jpeg" alt="Formals & Festive" class="w-full h-full object-cover object-top sm:object-center transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-95">
-                <div class="absolute inset-0 bg-gradient-to-t from-noir/90 via-noir/20 to-transparent"></div>
-                <div class="absolute bottom-4 sm:bottom-8 left-4 sm:left-6 right-4 sm:right-6 text-cream">
-                    <span class="text-[8px] sm:text-[9px] uppercase tracking-[0.3em] text-gold font-bold block mb-0.5 sm:mb-1">02 • Festive</span>
-                    <h3 class="font-display italic text-xl sm:text-3xl uppercase tracking-wider mb-1 sm:mb-2">FORMALS</h3>
-                    <span class="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-cream-soft hover-underline inline-block group-hover:text-gold transition-colors">View &rarr;</span>
-                </div>
-            </a>
+        <a href="#products-grid" onclick="filterCategory('luxury-pret')" class="group block relative h-[260px] sm:h-[480px] overflow-hidden bg-cream-soft border border-noir/10 rounded-sm shadow-md cursor-pointer">
+            <img src="silk.jpeg" alt="Luxury Pret" class="w-full h-full object-cover object-top sm:object-center transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-95">
+            <div class="absolute inset-0 bg-gradient-to-t from-noir/90 via-noir/20 to-transparent"></div>
+            <div class="absolute bottom-4 sm:bottom-8 left-4 sm:left-6 right-4 sm:right-6 text-cream">
+                <span class="text-[8px] sm:text-[9px] uppercase tracking-[0.3em] text-gold font-bold block mb-0.5 sm:mb-1">03 • Ready To Wear</span>
+                <h3 class="font-display italic text-xl sm:text-3xl uppercase tracking-wider mb-1 sm:mb-2">SILK PRET</h3>
+                <span class="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-cream-soft hover-underline inline-block group-hover:text-gold transition-colors">View &rarr;</span>
+            </div>
+        </a>
 
-            <a href="#products-grid" onclick="filterCategory('luxury-pret')" class="group block relative h-[260px] sm:h-[480px] overflow-hidden bg-cream-soft border border-noir/10 rounded-sm shadow-md cursor-pointer">
-                <img src="silk.jpeg" alt="Luxury Pret" class="w-full h-full object-cover object-top sm:object-center transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-95">
-                <div class="absolute inset-0 bg-gradient-to-t from-noir/90 via-noir/20 to-transparent"></div>
-                <div class="absolute bottom-4 sm:bottom-8 left-4 sm:left-6 right-4 sm:right-6 text-cream">
-                    <span class="text-[8px] sm:text-[9px] uppercase tracking-[0.3em] text-gold font-bold block mb-0.5 sm:mb-1">03 • Ready To Wear</span>
-                    <h3 class="font-display italic text-xl sm:text-3xl uppercase tracking-wider mb-1 sm:mb-2">SILK PRET</h3>
-                    <span class="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-cream-soft hover-underline inline-block group-hover:text-gold transition-colors">View &rarr;</span>
-                </div>
-            </a>
-
-            <a href="#products-grid" onclick="filterCategory('menswear')" class="group block relative h-[260px] sm:h-[480px] overflow-hidden bg-cream-soft border border-noir/10 rounded-sm shadow-md cursor-pointer">
-                <img src="men.jpeg" alt="Menswear" class="w-full h-full object-cover object-top sm:object-center transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-95">
-                <div class="absolute inset-0 bg-gradient-to-t from-noir/90 via-noir/20 to-transparent"></div>
-                <div class="absolute bottom-4 sm:bottom-8 left-4 sm:left-6 right-4 sm:right-6 text-cream">
-                    <span class="text-[8px] sm:text-[9px] uppercase tracking-[0.3em] text-gold font-bold block mb-0.5 sm:mb-1">04 • Menswear</span>
-                    <h3 class="font-display italic text-xl sm:text-3xl uppercase tracking-wider mb-1 sm:mb-2">SHERWANIS</h3>
-                    <span class="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-cream-soft hover-underline inline-block group-hover:text-gold transition-colors">View &rarr;</span>
-                </div>
-            </a>
-        </div>
-    </section>
+        <a href="#products-grid" onclick="filterCategory('menswear')" class="group block relative h-[260px] sm:h-[480px] overflow-hidden bg-cream-soft border border-noir/10 rounded-sm shadow-md cursor-pointer">
+            <img src="men.jpeg" alt="Menswear" class="w-full h-full object-cover object-top sm:object-center transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-95">
+            <div class="absolute inset-0 bg-gradient-to-t from-noir/90 via-noir/20 to-transparent"></div>
+            <div class="absolute bottom-4 sm:bottom-8 left-4 sm:left-6 right-4 sm:right-6 text-cream">
+                <span class="text-[8px] sm:text-[9px] uppercase tracking-[0.3em] text-gold font-bold block mb-0.5 sm:mb-1">04 • Menswear</span>
+                <h3 class="font-display italic text-xl sm:text-3xl uppercase tracking-wider mb-1 sm:mb-2">SHERWANIS</h3>
+                <span class="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-cream-soft hover-underline inline-block group-hover:text-gold transition-colors">View &rarr;</span>
+            </div>
+        </a>
+    </div>
+</section>
 
     <!-- Filter & Catalog Section -->
     <section id="products-grid" class="py-12 sm:py-24 bg-cream-soft border-t border-noir/10 scroll-mt-20 relative overflow-hidden">
