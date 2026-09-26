@@ -244,79 +244,32 @@
             </div>
         </div>
     </div>
-<!-- Hero Section Carousel (Full-width edge-to-edge on desktop with aspect-ratio preservation) -->
-<section class="relative bg-noir overflow-hidden group w-full min-h-[500px] lg:h-[85vh]" id="hero-carousel">
+<!-- Hero Banner Section (Single Bridal Banner optimized for Mobile & PC) -->
+<section class="relative bg-noir overflow-hidden w-full h-[100vh] min-h-[550px] lg:h-[80vh] lg:max-h-[850px]" id="hero-banner">
     
-    <!-- Slide 1: Royal Bridal Couture (ACTIVE FIRST SLIDE) -->
-    <div id="hero-slide-0" class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-100 z-10">
-        <img src="bridal_1.jpeg" alt="Royal Bridal Couture" class="w-full h-full object-cover object-top filter brightness-90">
-        <div class="absolute inset-0 bg-gradient-to-r from-noir/90 via-noir/50 lg:from-noir/80 lg:via-noir/30 to-transparent"></div>
-        <div class="absolute inset-0 flex items-center justify-start z-10">
-            <div class="max-w-7xl w-full mx-auto px-6 sm:px-12 lg:px-16">
-                <div class="max-w-2xl text-cream space-y-3 sm:space-y-4 text-left">
-                    <span class="text-[10px] sm:text-xs uppercase tracking-[0.4em] font-semibold text-gold block">Heirloom Creations</span>
-                    <h1 class="font-display italic text-4xl sm:text-7xl lg:text-8xl font-normal tracking-wide leading-none text-cream drop-shadow-md">ROYAL BRIDALS</h1>
-                    <p class="text-[10px] sm:text-sm font-light tracking-[0.2em] text-cream-soft uppercase leading-relaxed">Bespoke Couture • Milan &amp; Lahore Ateliers</p>
-                    <div class="pt-4 flex items-center justify-start gap-4">
-                        <a href="#products-grid" onclick="filterCategory('bridals')" class="px-8 sm:px-10 py-3.5 sm:py-4 bg-gold text-noir text-[10px] sm:text-xs tracking-[0.25em] font-bold uppercase hover:bg-cream transition-all shadow-xl text-center">Book Consultation</a>
-                    </div>
+    <!-- Bridal Image with responsive focal point -->
+    <img src="bridal_1.jpeg" 
+         alt="Royal Bridal Couture" 
+         class="w-full h-full object-cover object-top filter brightness-90">
+    
+    <!-- Soft Overlay Gradient -->
+    <div class="absolute inset-0 bg-gradient-to-r from-noir/90 via-noir/50 lg:from-noir/80 lg:via-noir/30 to-transparent"></div>
+    
+    <!-- Banner Content -->
+    <div class="absolute inset-0 flex items-center justify-start z-10">
+        <div class="max-w-7xl w-full mx-auto px-6 sm:px-12 lg:px-16">
+            <div class="max-w-2xl text-cream space-y-3 sm:space-y-4 text-left">
+                <span class="text-[10px] sm:text-xs uppercase tracking-[0.4em] font-semibold text-gold block">Heirloom Creations</span>
+                <h1 class="font-display italic text-4xl sm:text-7xl lg:text-8xl font-normal tracking-wide leading-none text-cream drop-shadow-md">ROYAL BRIDALS</h1>
+                <p class="text-[10px] sm:text-sm font-light tracking-[0.2em] text-cream-soft uppercase leading-relaxed">Bespoke Couture • Milan &amp; Lahore Ateliers</p>
+                <div class="pt-4 flex items-center justify-start gap-4">
+                    <a href="#products-grid" onclick="filterCategory('bridals')" class="px-8 sm:px-10 py-3.5 sm:py-4 bg-gold text-noir text-[10px] sm:text-xs tracking-[0.25em] font-bold uppercase hover:bg-cream transition-all shadow-xl text-center">Book Consultation</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Slide 2: Kehkashan Formals -->
-    <div id="hero-slide-1" class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0 z-0">
-        <img src="banner 1.jpeg" alt="Kehkashan Formals Campaign" class="w-full h-full object-cover object-top filter brightness-90">
-        <div class="absolute inset-0 bg-gradient-to-r from-noir/90 via-noir/50 lg:from-noir/80 lg:via-noir/30 to-transparent"></div>
-        <div class="absolute inset-0 flex items-center justify-start z-10">
-            <div class="max-w-7xl w-full mx-auto px-6 sm:px-12 lg:px-16">
-                <div class="max-w-2xl text-cream space-y-3 sm:space-y-4 text-left">
-                    <span class="text-[10px] sm:text-xs uppercase tracking-[0.4em] font-semibold text-gold block">Couture Campaign '26</span>
-                    <h1 class="font-display italic text-4xl sm:text-7xl lg:text-8xl font-normal tracking-wide leading-none text-cream drop-shadow-md">KEHKASHAN FORMALS</h1>
-                    <p class="text-[10px] sm:text-sm font-light tracking-[0.2em] text-cream-soft uppercase leading-relaxed">Pure 80g Raw Silk • Handcrafted Zardozi</p>
-                    <div class="pt-4 flex items-center justify-start gap-4">
-                        <a href="#products-grid" onclick="filterCategory('formals')" class="px-8 sm:px-10 py-3.5 sm:py-4 bg-gold text-noir text-[10px] sm:text-xs tracking-[0.25em] font-bold uppercase hover:bg-cream transition-all shadow-xl text-center">Shop Campaign</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Slide 3: Luxe Lawn Unstitched -->
-    <div id="hero-slide-2" class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0 z-0">
-        <img src="lawn.jpeg" alt="Luxe Lawn Unstitched Collection" class="w-full h-full object-cover object-top filter brightness-90">
-        <div class="absolute inset-0 bg-gradient-to-r from-noir/90 via-noir/50 lg:from-noir/80 lg:via-noir/30 to-transparent"></div>
-        <div class="absolute inset-0 flex items-center justify-start z-10">
-            <div class="max-w-7xl w-full mx-auto px-6 sm:px-12 lg:px-16">
-                <div class="max-w-2xl text-cream space-y-3 sm:space-y-4 text-left">
-                    <span class="text-[10px] sm:text-xs uppercase tracking-[0.4em] font-semibold text-gold block">Unstitched 3-Piece</span>
-                    <h1 class="font-display italic text-4xl sm:text-7xl lg:text-8xl font-normal tracking-wide leading-none text-cream drop-shadow-md">LUXE LAWN '26</h1>
-                    <p class="text-[10px] sm:text-sm font-light tracking-[0.2em] text-cream-soft uppercase leading-relaxed">Schiffli Cutwork • Pure Chiffon Dupattas</p>
-                    <div class="pt-4 flex items-center justify-start">
-                        <a href="#products-grid" onclick="filterCategory('unstitched')" class="px-8 sm:px-10 py-3.5 sm:py-4 bg-gold text-noir text-[10px] sm:text-xs tracking-[0.25em] font-bold uppercase hover:bg-cream transition-all shadow-xl text-center">Discover Lawn</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Carousel Nav Buttons -->
-    <button onclick="prevHeroSlide()" class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 p-2 sm:p-3 rounded-full bg-noir/50 hover:bg-gold text-cream hover:text-noir transition-colors backdrop-blur-sm border border-white/10" aria-label="Previous Slide">
-        <i data-lucide="chevron-left" class="w-5 h-5 sm:w-6 sm:h-6"></i>
-    </button>
-    <button onclick="nextHeroSlide()" class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 p-2 sm:p-3 rounded-full bg-noir/50 hover:bg-gold text-cream hover:text-noir transition-colors backdrop-blur-sm border border-white/10" aria-label="Next Slide">
-        <i data-lucide="chevron-right" class="w-5 h-5 sm:w-6 sm:h-6"></i>
-    </button>
-
-    <!-- Slide Indicators / Dots -->
-    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center space-x-3">
-        <button onclick="goToHeroSlide(0)" class="hero-dot w-8 h-1 rounded-full bg-gold transition-all duration-300"></button>
-        <button onclick="goToHeroSlide(1)" class="hero-dot w-2 h-1 rounded-full bg-cream/40 transition-all duration-300"></button>
-        <button onclick="goToHeroSlide(2)" class="hero-dot w-2 h-1 rounded-full bg-cream/40 transition-all duration-300"></button>
-    </div>
 </section>
-
 <!-- Marquee Banner -->
 <div class="bg-noir text-cream py-3.5 overflow-hidden border-y border-gold/30 select-none">
     <div class="flex whitespace-nowrap animate-marquee">
