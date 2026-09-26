@@ -466,7 +466,46 @@
             </div>
         </div>
     </section>
+</section>
+    <section id="atelier-consultation" class="py-24 bg-cream-soft border-t border-noir/10">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <span class="text-xs uppercase tracking-[0.35em] text-gold font-bold block mb-2">Private Bridal &amp; Couture Consultation</span>
+            <h2 class="font-display italic text-4xl sm:text-6xl text-noir mb-4">BOOK A VIRTUAL ATELIER APPOINTMENT</h2>
+            <div class="w-20 h-[2px] bg-gold mx-auto mb-8"></div>
+            <p class="text-xs sm:text-sm text-noir/80 leading-relaxed tracking-widest uppercase max-w-2xl mx-auto mb-10">
+                Consult 1-on-1 with our Senior Couture Stylists via HD Video Call to design your bespoke bridal lehenga, formal gown, or custom groom sherwani.
+            </p>
 
+            <form onsubmit="handleConsultationSubmit(event)" class="bg-cream p-8 sm:p-12 shadow-2xl rounded-sm border border-gold/40 text-left grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                    <label class="text-[10px] uppercase font-bold tracking-widest text-taupe block mb-1.5">Full Name</label>
+                    <input type="text" id="consult-name" required placeholder="Lady / Gentleman Name" class="w-full bg-cream-soft border border-noir/20 p-3.5 text-xs focus:outline-none focus:border-gold">
+                </div>
+                <div>
+                    <label class="text-[10px] uppercase font-bold tracking-widest text-taupe block mb-1.5">WhatsApp / Phone Number</label>
+                    <input type="tel" id="consult-phone" required placeholder="+92 300 0000000" class="w-full bg-cream-soft border border-noir/20 p-3.5 text-xs focus:outline-none focus:border-gold">
+                </div>
+                <div>
+                    <label class="text-[10px] uppercase font-bold tracking-widest text-taupe block mb-1.5">Occasion / Ensemble</label>
+                    <select id="consult-type" class="w-full bg-cream-soft border border-noir/20 p-3.5 text-xs focus:outline-none focus:border-gold">
+                        <option>Bridal Lehenga / Barat Ensemble</option>
+                        <option>Walima / Reception Formal</option>
+                        <option>Luxury Festive Pret / Eid</option>
+                        <option>Groom Sherwani / Prince Suit</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="text-[10px] uppercase font-bold tracking-widest text-taupe block mb-1.5">Preferred Date</label>
+                    <input type="date" id="consult-date" required class="w-full bg-cream-soft border border-noir/20 p-3.5 text-xs focus:outline-none focus:border-gold">
+                </div>
+                <div class="sm:col-span-2 pt-2">
+                    <button type="submit" class="w-full py-4 bg-noir text-gold text-xs font-bold tracking-[0.3em] uppercase hover:bg-gold hover:text-noir transition-all shadow-xl">
+                        Schedule Virtual Consultation
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
     <!-- Footer -->
     <footer class="bg-noir text-cream pt-14 pb-8 border-t border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
