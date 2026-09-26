@@ -921,6 +921,72 @@
             renderCart();
             if (window.lucide) lucide.createIcons();
         };
+        let currentHeroSlide = 0;
+const totalHeroSlides = 3;
+let heroSlideInterval = null;
+
+function updateHeroSlides() {
+    for (let i = 0; i < totalHeroSlides; i++) {
+        const slide = document.getElementById(`hero-slide-${i}`);
+        const dot = document.querySelectorAll('.hero-dot')[i];
+        
+        if (slide) {
+            if (i === currentHeroSlide) {
+                slide.classList.remove('opacity-0', 'z-0');
+                slide.classList.add('opacity-100', 'z-10');
+            } else {
+                slide.classList.remove('opacity-100', 'z-10');
+                slide.classList.add('opacity-0', 'z-0');
+            }
+        }
+
+        if (dot) {
+            if (i === currentHeroSlide) {
+                dot.classList.remove('w-2', 'bg-cream/40');
+                dot.classList.add('w-8', 'bg-gold');
+            } else {
+                dot.classList.remove('w-8', 'bg-gold');
+                dot.classList.add('w-2', 'bg-cream/40');
+            }
+        }
+    }
+}
+
+function nextHeroSlide() {
+    currentHeroSlide = (currentHeroSlide + 1) % totalHeroSlides;
+    updateHeroSlides();
+    resetHeroTimer();
+}
+
+function prevHeroSlide() {
+    currentHeroSlide = (currentHeroSlide - 1 + totalHeroSlides) % totalHeroSlides;
+    updateHeroSlides();
+    resetHeroTimer();
+}
+
+function goToHeroSlide(index) {
+    currentHeroSlide = index;
+    updateHeroSlides();
+    resetHeroTimer();
+}
+
+function startHeroTimer() {
+    heroSlideInterval = setInterval(() => {
+        nextHeroSlide();
+    }, 6000); // Transitions every 6 seconds
+}
+
+function resetHeroTimer() {
+    clearInterval(heroSlideInterval);
+    startHeroTimer();
+}
+
+// Initialize on page load inside window.onload
+const originalOnload = window.onload;
+window.onload = function() {
+    if (originalOnload) originalOnload();
+    startHeroTimer();
+};
     </script>
 </body>
 </html>
